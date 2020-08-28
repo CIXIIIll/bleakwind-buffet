@@ -1,7 +1,7 @@
 ﻿/*
 * Author: Haoran An
 * Edited by: Zachery Brunner
-* Class name: AretinoAppleJuice.cs
+* Class name: ArentinoAppleJuice.cs
 * Purpose: The information of ordering apple juice
 */
 using BleakwindBuffet.Data.Enums;
@@ -12,7 +12,7 @@ using System.Text;
 namespace Data.Drink
 {
     
-    public class AretinoAppleJuice
+    public class ArentinoAppleJuice
     {
         /// <summary>
         /// Get and set the size
