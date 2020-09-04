@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Drink
+namespace BleakwindBuffet.Data.Drinks
 {
     public class Warrior_Water
     {

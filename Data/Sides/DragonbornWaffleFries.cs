@@ -1,17 +1,17 @@
 ﻿/*
 * Author: Haoran An
 * Edited by: Zachery Brunner
-* Class name: MarkarthMilk.cs
-* Purpose: The information of ordering milk
+* Class name: DragonbornWaffleFries.cs
+* Purpose: The information of ordering Dragonborn Waffle Fries
 */
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Drink
+namespace BleakwindBuffet.Data.Sides
 {
-    public class MarkarthMilk
+    public class DragonbornWaffleFries
     {
         /// <summary>
         /// Get and set the size
@@ -26,15 +26,15 @@ namespace Data.Drink
             {
                 if (size == Size.Small)
                 {
-                    return 1.05;
+                    return 0.42;
                 }
                 else if (size == Size.Medium)
                 {
-                    return 1.11;
+                    return 0.76;
                 }
                 else
                 {
-                    return 1.22;
+                    return 0.96;
                 }
             }
         }
@@ -47,22 +47,18 @@ namespace Data.Drink
             {
                 if (size == Size.Small)
                 {
-                    return 56;
+                    return 77;
                 }
                 else if (size == Size.Medium)
                 {
-                    return 72;
+                    return 89;
                 }
                 else
                 {
-                    return 93;
+                    return 100;
                 }
             }
         }
-        /// <summary>
-        /// Get and set the option of Ice
-        /// </summary>
-        public bool Ice { get; set; } = false;
         /// <summary>
         /// Get the Special Instructions
         /// </summary>
@@ -71,12 +67,11 @@ namespace Data.Drink
             get
             {
                 List<String> specialinstructions = new List<string>();
-                if (Ice) specialinstructions.Add("Add ice");
                 return specialinstructions;
             }
         }
         /// <summary>
-        /// To string the name with size
+        /// To string the name and size
         /// </summary>
         public override string ToString()
         {
@@ -94,8 +89,7 @@ namespace Data.Drink
                 asize = "Large";
             }
 
-            return $"{asize} Markarth Milk";
+            return $"{asize} Dragonborn Waffle Fries";
         }
     }
-
 }

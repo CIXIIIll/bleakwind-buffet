@@ -1,17 +1,17 @@
 ﻿/*
 * Author: Haoran An
 * Edited by: Zachery Brunner
-* Class name: MadOtarGrits.cs
-* Purpose: The information of ordering Mad Otar Grits
+* Class name: FriedMiraak.cs
+* Purpose: The information of ordering Fried Miraak
 */
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Side
+namespace BleakwindBuffet.Data.Sides
 {
-    public class MadOtarGrits
+    public class FriedMiraak
     {
         /// <summary>
         /// Get and set the size
@@ -26,15 +26,15 @@ namespace Data.Side
             {
                 if (size == Size.Small)
                 {
-                    return 1.22;
+                    return 1.78;
                 }
                 else if (size == Size.Medium)
                 {
-                    return 1.58;
+                    return 2.01;
                 }
                 else
                 {
-                    return 1.93;
+                    return 2.88;
                 }
             }
         }
@@ -47,15 +47,15 @@ namespace Data.Side
             {
                 if (size == Size.Small)
                 {
-                    return 105;
+                    return 151;
                 }
                 else if (size == Size.Medium)
                 {
-                    return 142;
+                    return 236;
                 }
                 else
                 {
-                    return 179;
+                    return 306;
                 }
             }
         }
@@ -89,7 +89,7 @@ namespace Data.Side
                 asize = "Large";
             }
 
-            return $"{asize} Mad Otar Grits";
+            return $"{asize} Fried Miraak";
         }
     }
 }

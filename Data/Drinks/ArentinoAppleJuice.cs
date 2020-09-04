@@ -1,17 +1,18 @@
 ﻿/*
 * Author: Haoran An
 * Edited by: Zachery Brunner
-* Class name: FriedMiraak.cs
-* Purpose: The information of ordering Fried Miraak
+* Class name: ArentinoAppleJuice.cs
+* Purpose: The information of ordering apple juice
 */
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Side
+namespace BleakwindBuffet.Data.Drinks
 {
-    public class FriedMiraak
+    
+    public class ArentinoAppleJuice
     {
         /// <summary>
         /// Get and set the size
@@ -26,15 +27,15 @@ namespace Data.Side
             {
                 if (size == Size.Small)
                 {
-                    return 1.78;
+                    return 0.62;
                 }
                 else if (size == Size.Medium)
                 {
-                    return 2.01;
+                    return 0.87;
                 }
                 else
                 {
-                    return 2.88;
+                    return 1.01;
                 }
             }
         }
@@ -47,18 +48,22 @@ namespace Data.Side
             {
                 if (size == Size.Small)
                 {
-                    return 151;
+                    return 44;
                 }
                 else if (size == Size.Medium)
                 {
-                    return 236;
+                    return 88;
                 }
                 else
                 {
-                    return 306;
+                    return 132;
                 }
             }
         }
+        /// <summary>
+        /// Get and set the option of Ice
+        /// </summary>
+        public bool Ice { get; set; } = false;
         /// <summary>
         /// Get the Special Instructions
         /// </summary>
@@ -67,11 +72,12 @@ namespace Data.Side
             get
             {
                 List<String> specialinstructions = new List<string>();
+                if (Ice) specialinstructions.Add("Add ice");
                 return specialinstructions;
             }
         }
         /// <summary>
-        /// To string the name and size
+        /// To string the name with size
         /// </summary>
         public override string ToString()
         {
@@ -89,7 +95,7 @@ namespace Data.Side
                 asize = "Large";
             }
 
-            return $"{asize} Fried Miraak";
+            return $"{asize} Aretino Apple Juice";
         }
     }
 }

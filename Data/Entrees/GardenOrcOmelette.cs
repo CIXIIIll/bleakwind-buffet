@@ -1,21 +1,21 @@
 ﻿/*
 * Author: Haoran An
 * Edited by: Zachery Brunner
-* Class name: DoubleDraugr.cs
-* Purpose: The information of ordering Double Draugr
+* Class name: GardenOrcOmelette.cs
+* Purpose: The information of ordering Garden Orc Omelette
 */
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entree
+namespace BleakwindBuffet.Data.Entrees
 {
-    public class DoubleDraugr
+    public class GardenOrcOmelette
     {
         /// <summary>
         /// Get the price
         /// </summary>
-        private double price = 7.32;
+        private double price = 4.57;
         public double Price
         {
 
@@ -24,36 +24,41 @@ namespace Data.Entree
         /// <summary>
         /// Get the calories
         /// </summary>
-        private uint calories = 843;
+        private uint calories = 404;
         public uint Calories
         {
             get { return calories; }
         }
+
+        /// <summary>
+        /// Get and set the option of Broccoli
+        /// </summary>
+        public bool Broccoli { get; set; } = true;
+        /// <summary>
+        /// Get and set the option of Mushrooms
+        /// </summary>
+        public bool Mushrooms { get; set; } = true;
         /// <summary>
         /// Get and set the option of Tomato
         /// </summary>
         public bool Tomato { get; set; } = true;
         /// <summary>
-        /// Get and set the option of Lettuce
+        /// Get and set the option of Cheddar
         /// </summary>
-        public bool Lettuce { get; set; } = true;
+        public bool Cheddar { get; set; } = true;
         /// <summary>
-        /// Get and set the option of Mayo
-        /// </summary>
-        public bool Mayo { get; set; } = true;
-        /// <summary>
-        /// Get and set the Special Instructions
+        /// Get the Special Instructions
         /// </summary>
         public List<string> SpecialInstructions
         {
             get
             {
                 List<String> specialinstructions = new List<string>();
+                if (!Broccoli) specialinstructions.Add("Hold broccoli");
+                if (!Mushrooms) specialinstructions.Add("Hold mushrooms");
                 if (!Tomato) specialinstructions.Add("Hold tomato");
-                if (!Lettuce) specialinstructions.Add("Hold lettuce");
-                if (!Mayo) specialinstructions.Add("Hold mayo");
+                if (!Cheddar) specialinstructions.Add("Hold cheddar");
                 return specialinstructions;
-                
             }
         }
         /// <summary>
@@ -61,7 +66,7 @@ namespace Data.Entree
         /// </summary>
         public override string ToString()
         {
-            return "Double Draugr";
+            return "Garden Orc Omelette";
         }
     }
 }

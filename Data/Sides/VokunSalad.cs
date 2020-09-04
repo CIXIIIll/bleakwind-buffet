@@ -1,17 +1,17 @@
 ﻿/*
 * Author: Haoran An
 * Edited by: Zachery Brunner
-* Class name: DragonbornWaffleFries.cs
-* Purpose: The information of ordering Dragonborn Waffle Fries
+* Class name: VokunSalad.cs
+* Purpose: The information of ordering Vokun Salad.
 */
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Side
+namespace BleakwindBuffet.Data.Sides
 {
-    public class DragonbornWaffleFries
+    public class VokunSalad
     {
         /// <summary>
         /// Get and set the size
@@ -26,15 +26,15 @@ namespace Data.Side
             {
                 if (size == Size.Small)
                 {
-                    return 0.42;
+                    return 0.93;
                 }
                 else if (size == Size.Medium)
                 {
-                    return 0.76;
+                    return 1.28;
                 }
                 else
                 {
-                    return 0.96;
+                    return 1.82;
                 }
             }
         }
@@ -47,15 +47,15 @@ namespace Data.Side
             {
                 if (size == Size.Small)
                 {
-                    return 77;
+                    return 41;
                 }
                 else if (size == Size.Medium)
                 {
-                    return 89;
+                    return 52;
                 }
                 else
                 {
-                    return 100;
+                    return 73;
                 }
             }
         }
@@ -89,7 +89,7 @@ namespace Data.Side
                 asize = "Large";
             }
 
-            return $"{asize} Dragonborn Waffle Fries";
+            return $"{asize} Vokun Salad";
         }
     }
 }

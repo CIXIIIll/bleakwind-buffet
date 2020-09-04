@@ -1,17 +1,17 @@
 ﻿/*
 * Author: Haoran An
 * Edited by: Zachery Brunner
-* Class name: CandlehearthCoffee.cs
-* Purpose: The information of ordering coffee
+* Class name: MarkarthMilk.cs
+* Purpose: The information of ordering milk
 */
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Drink
+namespace BleakwindBuffet.Data.Drinks
 {
-    public class CandlehearthCoffee
+    public class MarkarthMilk
     {
         /// <summary>
         /// Get and set the size
@@ -26,15 +26,15 @@ namespace Data.Drink
             {
                 if (size == Size.Small)
                 {
-                    return 0.75;
+                    return 1.05;
                 }
                 else if (size == Size.Medium)
                 {
-                    return 1.25;
+                    return 1.11;
                 }
                 else
                 {
-                    return 1.75;
+                    return 1.22;
                 }
             }
         }
@@ -47,15 +47,15 @@ namespace Data.Drink
             {
                 if (size == Size.Small)
                 {
-                    return 7;
+                    return 56;
                 }
                 else if (size == Size.Medium)
                 {
-                    return 10;
+                    return 72;
                 }
                 else
                 {
-                    return 20;
+                    return 93;
                 }
             }
         }
@@ -63,14 +63,6 @@ namespace Data.Drink
         /// Get and set the option of Ice
         /// </summary>
         public bool Ice { get; set; } = false;
-        /// <summary>
-        /// Get and set the option of Cream
-        /// </summary>
-        public bool RppmForCream { get; set; } = false;
-        /// <summary>
-        /// Get and set the option of Decaf
-        /// </summary>
-        public bool Decaf { get; set; } = false;
         /// <summary>
         /// Get the Special Instructions
         /// </summary>
@@ -80,7 +72,6 @@ namespace Data.Drink
             {
                 List<String> specialinstructions = new List<string>();
                 if (Ice) specialinstructions.Add("Add ice");
-                if (RppmForCream) specialinstructions.Add("Add cream");
                 return specialinstructions;
             }
         }
@@ -102,14 +93,9 @@ namespace Data.Drink
             {
                 asize = "Large";
             }
-            if (Decaf)
-            {
-                return $"{asize} Decaf Candlehearth Coffee";
-            }
-            else
-            {
-                return $"{asize} Candlehearth Coffee";
-            }
+
+            return $"{asize} Markarth Milk";
         }
     }
+
 }

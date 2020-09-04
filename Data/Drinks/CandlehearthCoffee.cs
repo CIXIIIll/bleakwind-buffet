@@ -1,17 +1,17 @@
 ﻿/*
 * Author: Haoran An
 * Edited by: Zachery Brunner
-* Class name: VokunSalad.cs
-* Purpose: The information of ordering Vokun Salad.
+* Class name: CandlehearthCoffee.cs
+* Purpose: The information of ordering coffee
 */
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Side
+namespace BleakwindBuffet.Data.Drinks
 {
-    public class VokunSalad
+    public class CandlehearthCoffee
     {
         /// <summary>
         /// Get and set the size
@@ -26,15 +26,15 @@ namespace Data.Side
             {
                 if (size == Size.Small)
                 {
-                    return 0.93;
+                    return 0.75;
                 }
                 else if (size == Size.Medium)
                 {
-                    return 1.28;
+                    return 1.25;
                 }
                 else
                 {
-                    return 1.82;
+                    return 1.75;
                 }
             }
         }
@@ -47,18 +47,30 @@ namespace Data.Side
             {
                 if (size == Size.Small)
                 {
-                    return 41;
+                    return 7;
                 }
                 else if (size == Size.Medium)
                 {
-                    return 52;
+                    return 10;
                 }
                 else
                 {
-                    return 73;
+                    return 20;
                 }
             }
         }
+        /// <summary>
+        /// Get and set the option of Ice
+        /// </summary>
+        public bool Ice { get; set; } = false;
+        /// <summary>
+        /// Get and set the option of Cream
+        /// </summary>
+        public bool RppmForCream { get; set; } = false;
+        /// <summary>
+        /// Get and set the option of Decaf
+        /// </summary>
+        public bool Decaf { get; set; } = false;
         /// <summary>
         /// Get the Special Instructions
         /// </summary>
@@ -67,11 +79,13 @@ namespace Data.Side
             get
             {
                 List<String> specialinstructions = new List<string>();
+                if (Ice) specialinstructions.Add("Add ice");
+                if (RppmForCream) specialinstructions.Add("Add cream");
                 return specialinstructions;
             }
         }
         /// <summary>
-        /// To string the name and size
+        /// To string the name with size
         /// </summary>
         public override string ToString()
         {
@@ -88,8 +102,14 @@ namespace Data.Side
             {
                 asize = "Large";
             }
-
-            return $"{asize} Vokun Salad";
+            if (Decaf)
+            {
+                return $"{asize} Decaf Candlehearth Coffee";
+            }
+            else
+            {
+                return $"{asize} Candlehearth Coffee";
+            }
         }
     }
 }

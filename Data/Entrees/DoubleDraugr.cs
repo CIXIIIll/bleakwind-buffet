@@ -1,21 +1,21 @@
 ﻿/*
 * Author: Haoran An
 * Edited by: Zachery Brunner
-* Class name: ThalmorTriple.cs
-* Purpose: The information of ordering Thalmor Triple
+* Class name: DoubleDraugr.cs
+* Purpose: The information of ordering Double Draugr
 */
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Data.Entree
+namespace BleakwindBuffet.Data.Entrees
 {
-    public class ThalmorTriple
+    public class DoubleDraugr
     {
         /// <summary>
         /// Get the price
         /// </summary>
-        private double price = 8.32;
+        private double price = 7.32;
         public double Price
         {
 
@@ -24,30 +24,36 @@ namespace Data.Entree
         /// <summary>
         /// Get the calories
         /// </summary>
-        private uint calories = 943;
+        private uint calories = 843;
         public uint Calories
         {
             get { return calories; }
         }
         /// <summary>
-        /// Get and set the option of Bacon
+        /// Get and set the option of Tomato
         /// </summary>
-        public bool Bacon { get; set; } = true;
+        public bool Tomato { get; set; } = true;
         /// <summary>
-        /// Get and set the option of Egg
+        /// Get and set the option of Lettuce
         /// </summary>
-        public bool Egg { get; set; } = true;
+        public bool Lettuce { get; set; } = true;
         /// <summary>
-        /// Get the Special Instructions
+        /// Get and set the option of Mayo
+        /// </summary>
+        public bool Mayo { get; set; } = true;
+        /// <summary>
+        /// Get and set the Special Instructions
         /// </summary>
         public List<string> SpecialInstructions
         {
             get
             {
                 List<String> specialinstructions = new List<string>();
-                if (!Bacon) specialinstructions.Add("Hold bacon");
-                if (!Egg) specialinstructions.Add("Hold egg");
+                if (!Tomato) specialinstructions.Add("Hold tomato");
+                if (!Lettuce) specialinstructions.Add("Hold lettuce");
+                if (!Mayo) specialinstructions.Add("Hold mayo");
                 return specialinstructions;
+                
             }
         }
         /// <summary>
@@ -55,7 +61,7 @@ namespace Data.Entree
         /// </summary>
         public override string ToString()
         {
-            return "Thalmor Triple";
+            return "Double Draugr";
         }
     }
 }
