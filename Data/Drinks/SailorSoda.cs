@@ -11,19 +11,22 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// A class that get and set information of soda
+    /// </summary>
     public class SailorSoda
     {
-        /// <summary>
+        /// <value>
         /// Get and set the size
-        /// </summary>
-        public Size size { get; set; } = Size.Small;
-        /// <summary>
+        /// </value>
+        public Size size { get; set; } = Size.Small;  
+        /// <value>
         /// Get and set the Soda Flavor
-        /// </summary>
-        public SodaFlavor SodaFlavor { get; set; } = SodaFlavor.Cherry;
-        /// <summary>
+        /// </value>
+        public SodaFlavor sodaflavor { get; set; } = SodaFlavor.Cherry;
+        /// <value>
         /// Get the price
-        /// </summary>
+        /// </value>
         public double Pirce
         {
             get
@@ -42,9 +45,9 @@ namespace BleakwindBuffet.Data.Drinks
                 }
             }
         }
-        /// <summary>
+        /// <value>
         /// Get the calories
-        /// </summary>
+        /// </value>
         public double Calories
         {
             get
@@ -63,13 +66,13 @@ namespace BleakwindBuffet.Data.Drinks
                 }
             }
         }
-        /// <summary>
+        /// <value>
         /// Get and set the option of Ice
-        /// </summary>
+        /// </value>
         public bool Ice { get; set; } = true;
-        /// <summary>
+        /// <value>
         /// Get the Special Instructions
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -82,6 +85,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// To string the name with size and soda flavor
         /// </summary>
+        /// <returns>A string that include name size and flavor</returns>        
         public override string ToString()
         {
             String asize = "a";
@@ -99,23 +103,23 @@ namespace BleakwindBuffet.Data.Drinks
                 asize = "Large";
             }
             
-            if (SodaFlavor == SodaFlavor.Cherry)
+            if (sodaflavor == SodaFlavor.Cherry)
             {
                 aFlavor = "Cherry";
             }
-            else if (SodaFlavor == SodaFlavor.Blackberry)
+            else if (sodaflavor == SodaFlavor.Blackberry)
             {
                 aFlavor = "Blackberry";
             }
-            else if (SodaFlavor == SodaFlavor.Lemon)
+            else if (sodaflavor == SodaFlavor.Lemon)
             {
                 aFlavor = "Lemon";
             }
-            else if (SodaFlavor == SodaFlavor.Peach)
+            else if (sodaflavor == SodaFlavor.Peach)
             {
                 aFlavor = "Peach";
             }
-            else if (SodaFlavor == SodaFlavor.Grapefruit)
+            else if (sodaflavor == SodaFlavor.Grapefruit)
             {
                 aFlavor = "Grapefruit";
             }

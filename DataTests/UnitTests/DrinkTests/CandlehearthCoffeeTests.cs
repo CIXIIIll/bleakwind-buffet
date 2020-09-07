@@ -7,6 +7,7 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Drinks;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
@@ -15,41 +16,71 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [Fact]
         public void ShouldNotIncludeIceByDefault()
         {
+            CandlehearthCoffee chf = new CandlehearthCoffee();
+            Assert.False(chf.Ice);
         }
 
         [Fact]
         public void ShouldNotBeDecafByDefault()
         {
+            CandlehearthCoffee chf = new CandlehearthCoffee();
+            Assert.False(chf.Decaf);
         }
 
         [Fact]
         public void ShouldNotHaveRoomForCreamByDefault()
         {
+            CandlehearthCoffee chf = new CandlehearthCoffee();
+            Assert.False(chf.RppmForCream);
         }
 
         [Fact]
         public void ShouldBeSmallByDefault()
         {
+            CandlehearthCoffee chf = new CandlehearthCoffee();
+            Assert.Equal(Size.Small, chf.size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetIce()
         {
+            CandlehearthCoffee chf = new CandlehearthCoffee();
+            chf.Ice = true;
+            Assert.True(chf.Ice);
+            chf.Ice = false;
+            Assert.False(chf.Ice);
         }
 
         [Fact]
         public void ShouldBeAbleToSetDecaf()
         {
+            CandlehearthCoffee chf = new CandlehearthCoffee();
+            chf.Decaf = true;
+            Assert.True(chf.Decaf);
+            chf.Decaf = false;
+            Assert.False(chf.Decaf);
         }
 
         [Fact]
         public void ShouldBeAbleToSetRoomForCream()
         {
+            CandlehearthCoffee chf = new CandlehearthCoffee();
+            chf.RppmForCream = true;
+            Assert.True(chf.RppmForCream);
+            chf.RppmForCream = false;
+            Assert.False(chf.RppmForCream);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
+            CandlehearthCoffee chf = new CandlehearthCoffee();         
+            chf.size = Size.Medium;
+            Assert.Equal(Size.Medium, chf.size);
+            chf.size = Size.Large;
+            Assert.Equal(Size.Large, chf.size);
+            chf.size = Size.Small;
+            Assert.Equal(Size.Small, chf.size);
         }
 
         [Theory]
@@ -58,6 +89,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, 1.75)]
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
+            CandlehearthCoffee chf = new CandlehearthCoffee();
+            chf.size = size;
+            Assert.Equal(price, chf.Pirce);
         }
 
         [Theory]
@@ -66,6 +100,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, 20)]
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
+            CandlehearthCoffee chf = new CandlehearthCoffee();
+            chf.size = size;
+            Assert.Equal(cal, chf.Calories);
         }
 
         [Theory]
@@ -75,6 +112,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(false, false)]
         public void ShouldHaveCorrectSpecialInstructions(bool includeIce, bool includeCream)
         {
+            CandlehearthCoffee chf = new CandlehearthCoffee();
+            chf.Ice = includeIce;
+            chf.RppmForCream = includeCream;
+            if(includeCream)Assert.Contains("Add cream", chf.SpecialInstructions);
+            if (includeIce) Assert.Contains("Add ice", chf.SpecialInstructions);
+            if (!includeIce && !includeCream) Assert.Empty(chf.SpecialInstructions);
         }
 
         [Theory]
@@ -86,6 +129,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(false, Size.Large, "Large Candlehearth Coffee")]
         public void ShouldReturnCorrectToStringBasedOnSize(bool decaf, Size size, string name)
         {
+            CandlehearthCoffee chf = new CandlehearthCoffee();
+            chf.size = size;
+            chf.Decaf = decaf;
+            Assert.Equal(name, chf.ToString());
         }
     }
 }

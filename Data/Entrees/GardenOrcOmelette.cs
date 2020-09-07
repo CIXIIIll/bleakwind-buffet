@@ -10,45 +10,48 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// A class of information of ordering Garden Orc Omelette
+    /// </summary>
     public class GardenOrcOmelette
     {
-        /// <summary>
+        /// <value>
         /// Get the price
-        /// </summary>
+        /// </value>
         private double price = 4.57;
         public double Price
         {
 
             get { return price; }
         }
-        /// <summary>
+        /// <value>
         /// Get the calories
-        /// </summary>
+        /// </value>
         private uint calories = 404;
         public uint Calories
         {
             get { return calories; }
         }
 
-        /// <summary>
+        /// <value>
         /// Get and set the option of Broccoli
-        /// </summary>
+        /// </value>
         public bool Broccoli { get; set; } = true;
-        /// <summary>
+        /// <value>
         /// Get and set the option of Mushrooms
-        /// </summary>
+        /// </value>
         public bool Mushrooms { get; set; } = true;
-        /// <summary>
+        /// <value>
         /// Get and set the option of Tomato
-        /// </summary>
+        /// </value>
         public bool Tomato { get; set; } = true;
-        /// <summary>
+        /// <value>
         /// Get and set the option of Cheddar
-        /// </summary>
+        /// </value>
         public bool Cheddar { get; set; } = true;
-        /// <summary>
+        /// <value>
         /// Get the Special Instructions
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -64,6 +67,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// To string the name
         /// </summary>
+        /// <returns>A string that name of entree</returns>    
         public override string ToString()
         {
             return "Garden Orc Omelette";

@@ -10,28 +10,31 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// A class of information of ordering Thugs T-Bone
+    /// </summary>
     public class ThugsTBone
     {
-        /// <summary>
+        /// <value>
         /// Get the price
-        /// </summary>
+        /// </value>
         private double price = 6.44;
         public double Price
         {
 
             get { return price; }
         }
-        /// <summary>
+        /// <value>
         /// Get the calories
-        /// </summary>
+        /// </value>
         private uint calories = 982;
         public uint Calories
         {
             get { return calories; }
         }
-        /// <summary>
+        /// <value>
         /// Get the Special Instructions
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -43,6 +46,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// To string the name
         /// </summary>
+        /// <returns>A string that name of entree</returns>    
         public override string ToString()
         {
             return "Thugs T-Bone";

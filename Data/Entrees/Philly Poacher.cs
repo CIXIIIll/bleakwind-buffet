@@ -10,40 +10,43 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    ///  A class of information of ordering Philly Poacher
+    /// </summary>
     public class Philly_Poacher
     {
-         /// <summary>
+        /// <value>
         /// Get the price
-        /// </summary>
+        /// </value>
         private double price = 7.23;
         public double Price
         {
 
             get { return price; }
         }
-        /// <summary>
+        /// <value>
         /// Get the calories
-        /// </summary>
+        /// </value>
         private uint calories = 784;
         public uint Calories
         {
             get { return calories; }
         }
-        /// <summary>
+        /// <value>
         /// Get and set  the option of Sirloin 
-        /// </summary>
+        /// </value>
         public bool Sirloin { get; set; } = true;
-        /// <summary>
+        /// <value>
         /// Get and set the option of Onion 
-        /// </summary>
+        /// </value>
         public bool Onion { get; set; } = true;
-        /// <summary>
+        /// <value>
         /// Get and set the option of Roll
-        /// </summary>
+        /// </value>
         public bool Roll { get; set; } = true;
-        /// <summary>
+        /// <value>
         /// Get and set the Special Instructions
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -58,6 +61,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// To string the name
         /// </summary>
+        /// <returns>A string that name of entree</returns>    
         public override string ToString()
         {
             return "Philly Poacher";

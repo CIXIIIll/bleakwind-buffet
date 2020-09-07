@@ -7,6 +7,8 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Sides;
+
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -15,16 +17,28 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [Fact]
         public void ShouldBeSmallByDefault()
         {
+            FriedMiraak fm = new FriedMiraak();
+            Assert.Equal(Size.Small, fm.size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
+
+            FriedMiraak fm = new FriedMiraak();            
+            fm.size = Size.Medium;
+            Assert.Equal(Size.Medium, fm.size);
+            fm.size = Size.Large;
+            Assert.Equal(Size.Large, fm.size);
+            fm.size = Size.Small;
+            Assert.Equal(Size.Small, fm.size);
         }
 
         [Fact]
         public void ShouldReturnCorrectSpecialInstructions()
         {
+            FriedMiraak fm = new FriedMiraak();
+            Assert.Empty(fm.SpecialInstructions);
         }
 
         [Theory]
@@ -33,6 +47,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, 2.88)]
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
+            FriedMiraak fm = new FriedMiraak();
+            fm.size = size;
+            Assert.Equal(price, fm.Pirce);
         }
 
         [Theory]
@@ -41,6 +58,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, 306)]
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
+            FriedMiraak fm = new FriedMiraak();
+            fm.size = size;
+            Assert.Equal(calories, fm.Calories);
         }
 
         [Theory]
@@ -49,6 +69,10 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, "Large Fried Miraak")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
+            FriedMiraak fm = new FriedMiraak();
+            fm.size = size;
+            Assert.Equal(name, fm.ToString());
         }
+
     }
 }

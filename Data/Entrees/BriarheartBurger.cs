@@ -10,49 +10,52 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// A class of information of ordering Briarheart Burger
+    /// </summary>
     public class BriarheartBurger
     {
-        /// <summary>
+        /// <value>
         /// Get the price
-        /// </summary>
+        /// </value>
         private double price = 6.32;
         public double Price
         {
             
             get { return price;  }
         }
-        /// <summary>
+        /// <value>
         /// Get the calories
-        /// </summary>
+        /// </value>
         private uint calories = 732;
         public uint Calories
         {
             get { return calories; }
         }
-        /// <summary>
+        /// <value>
         /// Get and set  the option of Ketchup
-        /// </summary>
+        /// </value>
         public bool Ketchup { get; set; } = true;
-        /// <summary>
+        /// <value>
         /// Get and set the option of Bun
-        /// </summary>
+        /// </value>
         public bool Bun{ get; set; } = true;
-        /// <summary>
+        /// <value>
         /// Get and set the option of Mustard
-        /// </summary>
+        /// </value>
         public bool Mustard { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// Get and set the option of Pickle
-        /// </summary>
+        /// </value>
         public bool Pickle { get; set; } = true;
-        /// <summary>
+        /// <value>
         /// Get and set the option of Cheese
-        /// </summary>
+        /// </value>
         public bool Cheese { get; set; } = true;
-        /// <summary>
+        /// <value>
         /// Get and set the Special Instructions
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -69,6 +72,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// To string the name
         /// </summary>
+        /// <returns>A string that name of entree</returns>        
         public override string ToString()
         {
             return "Briarheart Burger";

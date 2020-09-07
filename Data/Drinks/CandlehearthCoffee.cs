@@ -11,15 +11,18 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// A class of information of ordering coffee
+    /// </summary>
     public class CandlehearthCoffee
     {
-        /// <summary>
+        /// <value>
         /// Get and set the size
-        /// </summary>
+        /// </value>
         public Size size { get; set; } = Size.Small;
-        /// <summary>
+        /// <value>
         /// Get the price
-        /// </summary>
+        /// </value>
         public double Pirce
         {
             get
@@ -38,9 +41,9 @@ namespace BleakwindBuffet.Data.Drinks
                 }
             }
         }
-        /// <summary>
+        /// <value>
         /// Get the calories
-        /// </summary>
+        /// </value>
         public double Calories
         {
             get
@@ -59,21 +62,21 @@ namespace BleakwindBuffet.Data.Drinks
                 }
             }
         }
-        /// <summary>
+        /// <value>
         /// Get and set the option of Ice
-        /// </summary>
+        /// </value>
         public bool Ice { get; set; } = false;
-        /// <summary>
+        /// <value>
         /// Get and set the option of Cream
-        /// </summary>
+        /// </svalue>
         public bool RppmForCream { get; set; } = false;
-        /// <summary>
+        /// <value>
         /// Get and set the option of Decaf
-        /// </summary>
+        /// </value>
         public bool Decaf { get; set; } = false;
-        /// <summary>
+        /// <value>
         /// Get the Special Instructions
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -85,8 +88,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
         /// <summary>
-        /// To string the name with size
+        /// To string the name with size and Decaf
         /// </summary>
+        /// <returns>A string that include name size and Decaf</returns>      
         public override string ToString()
         {
             String asize = "a";

@@ -11,15 +11,18 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
+    /// <summary>
+    /// A class of information of ordering Dragonborn Waffle Fries
+    /// </summary>
     public class DragonbornWaffleFries
     {
-        /// <summary>
+        /// <value>
         /// Get and set the size
-        /// </summary>
+        /// </value>
         public Size size { get; set; } = Size.Small;
-        /// <summary>
+        /// <value>
         /// Get the price
-        /// </summary>
+        /// </value>
         public double Pirce
         {
             get
@@ -38,9 +41,9 @@ namespace BleakwindBuffet.Data.Sides
                 }
             }
         }
-        /// <summary>
+        /// <value>
         /// Get the calories
-        /// </summary>
+        /// </value>
         public double Calories
         {
             get
@@ -59,9 +62,9 @@ namespace BleakwindBuffet.Data.Sides
                 }
             }
         }
-        /// <summary>
+        /// <value>
         /// Get the Special Instructions
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get
@@ -71,8 +74,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
         /// <summary>
-        /// To string the name and size
+        /// To string the name with size
         /// </summary>
+        /// <returns>A string that include name and size</returns>   
         public override string ToString()
         {
             String asize = "a";
