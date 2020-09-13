@@ -17,7 +17,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldBeSmallByDefault()
         {
             MadOtarGrits mog = new MadOtarGrits();
-            Assert.Equal(Size.Small, mog.size);
+            Assert.Equal(Size.Small, mog.Size);
         }
                 
         [Fact]
@@ -25,12 +25,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             MadOtarGrits mog = new MadOtarGrits();
       
-            mog.size = Size.Medium;
-            Assert.Equal(Size.Medium, mog.size);
-            mog.size = Size.Large;
-            Assert.Equal(Size.Large, mog.size);     
-            mog.size = Size.Small;
-            Assert.Equal(Size.Small, mog.size);
+            mog.Size = Size.Medium;
+            Assert.Equal(Size.Medium, mog.Size);
+            mog.Size = Size.Large;
+            Assert.Equal(Size.Large, mog.Size);     
+            mog.Size = Size.Small;
+            Assert.Equal(Size.Small, mog.Size);
         }
 
         [Fact]
@@ -47,8 +47,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
             MadOtarGrits mog = new MadOtarGrits();
-            mog.size = size;
-            Assert.Equal(price, mog.Pirce);
+            mog.Size = size;
+            Assert.Equal(price, mog.Price);
         }
 
         [Theory]
@@ -58,7 +58,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
             MadOtarGrits mog = new MadOtarGrits();
-            mog.size = size;
+            mog.Size = size;
             Assert.Equal(calories, mog.Calories);
         }
 
@@ -69,7 +69,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
             MadOtarGrits mog = new MadOtarGrits();
-            mog.size = size;
+            mog.Size = size;
             Assert.Equal(name, mog.ToString());
         }
     }

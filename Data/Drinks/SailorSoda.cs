@@ -14,28 +14,28 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// A class that get and set information of soda
     /// </summary>
-    public class SailorSoda
+    public class SailorSoda :Drink,IOrderItem
     {
         /// <value>
-        /// Get and set the size
+        /// Get and set the Size
         /// </value>
-        public Size size { get; set; } = Size.Small;  
+        public override Size Size { get; set; } = Size.Small;  
         /// <value>
         /// Get and set the Soda Flavor
         /// </value>
-        public SodaFlavor sodaflavor { get; set; } = SodaFlavor.Cherry;
+        public SodaFlavor Flavor { get; set; } = SodaFlavor.Cherry;
         /// <value>
         /// Get the price
         /// </value>
-        public double Pirce
+        public override double Price
         {
             get
             {
-                if(size == Size.Small)
+                if(Size == Size.Small)
                 {
                     return 1.42;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
                     return 1.74;
                 }
@@ -48,15 +48,15 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Get the calories
         /// </value>
-        public double Calories
+        public override uint Calories
         {
             get
             {
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
                     return 117;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
                     return 153;
                 }
@@ -73,7 +73,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Get the Special Instructions
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -83,18 +83,18 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
         /// <summary>
-        /// To string the name with size and soda flavor
+        /// To string the name with Size and soda flavor
         /// </summary>
-        /// <returns>A string that include name size and flavor</returns>        
+        /// <returns>A string that include name Size and flavor</returns>        
         public override string ToString()
         {
             String asize = "a";
             String aFlavor = "b";
-            if (size == Size.Small)
+            if (Size == Size.Small)
             {
                 asize = "Small";
             }
-            else if (size == Size.Medium)
+            else if (Size == Size.Medium)
             {
                 asize = "Medium";
             }
@@ -103,23 +103,23 @@ namespace BleakwindBuffet.Data.Drinks
                 asize = "Large";
             }
             
-            if (sodaflavor == SodaFlavor.Cherry)
+            if (Flavor == SodaFlavor.Cherry)
             {
                 aFlavor = "Cherry";
             }
-            else if (sodaflavor == SodaFlavor.Blackberry)
+            else if (Flavor == SodaFlavor.Blackberry)
             {
                 aFlavor = "Blackberry";
             }
-            else if (sodaflavor == SodaFlavor.Lemon)
+            else if (Flavor == SodaFlavor.Lemon)
             {
                 aFlavor = "Lemon";
             }
-            else if (sodaflavor == SodaFlavor.Peach)
+            else if (Flavor == SodaFlavor.Peach)
             {
                 aFlavor = "Peach";
             }
-            else if (sodaflavor == SodaFlavor.Grapefruit)
+            else if (Flavor == SodaFlavor.Grapefruit)
             {
                 aFlavor = "Grapefruit";
             }

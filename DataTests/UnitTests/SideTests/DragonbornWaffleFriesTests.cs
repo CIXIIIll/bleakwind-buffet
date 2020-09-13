@@ -17,19 +17,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldBeSmallByDefault()
         {
             DragonbornWaffleFries dwf = new DragonbornWaffleFries();
-            Assert.Equal(Size.Small, dwf.size);
+            Assert.Equal(Size.Small, dwf.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
             DragonbornWaffleFries dwf = new DragonbornWaffleFries();       
-            dwf.size = Size.Medium;
-            Assert.Equal(Size.Medium, dwf.size);
-            dwf.size = Size.Large;
-            Assert.Equal(Size.Large, dwf.size);
-            dwf.size = Size.Small;
-            Assert.Equal(Size.Small, dwf.size);
+            dwf.Size = Size.Medium;
+            Assert.Equal(Size.Medium, dwf.Size);
+            dwf.Size = Size.Large;
+            Assert.Equal(Size.Large, dwf.Size);
+            dwf.Size = Size.Small;
+            Assert.Equal(Size.Small, dwf.Size);
         }
 
         [Fact]
@@ -46,8 +46,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
             DragonbornWaffleFries dwf = new DragonbornWaffleFries();
-            dwf.size = size;
-            Assert.Equal(price, dwf.Pirce);
+            dwf.Size = size;
+            Assert.Equal(price, dwf.Price);
         }
 
         [Theory]
@@ -57,7 +57,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
             DragonbornWaffleFries dwf = new DragonbornWaffleFries();
-            dwf.size = size;
+            dwf.Size = size;
             Assert.Equal(calories, dwf.Calories);
         }
 
@@ -68,7 +68,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
             DragonbornWaffleFries dwf = new DragonbornWaffleFries();
-            dwf.size = size;
+            dwf.Size = size;
             Assert.Equal(name, dwf.ToString());
         }
     }

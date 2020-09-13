@@ -14,23 +14,29 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class AretinoAppleJuiceTests
     {
         [Fact]
+        public void ShouldBeADrink()
+        {
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
+            Assert.IsAssignableFrom<Drink>(aaj);
+        }
+        [Fact]
         public void ShouldNotIncludeIceByDefault()
         {
-            ArentinoAppleJuice aaj = new ArentinoAppleJuice();
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
             Assert.False(aaj.Ice);
         }
 
         [Fact]
         public void ShouldBeSmallByDefault()
         {
-            ArentinoAppleJuice aaj = new ArentinoAppleJuice();
-            Assert.Equal(Size.Small, aaj.size);
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
+            Assert.Equal(Size.Small, aaj.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetIce()
         {
-            ArentinoAppleJuice aaj = new ArentinoAppleJuice();
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
             aaj.Ice = true;
             Assert.True(aaj.Ice);
             aaj.Ice = false;
@@ -40,14 +46,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
-            ArentinoAppleJuice aaj = new ArentinoAppleJuice();
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
 
-            aaj.size = Size.Medium;
-            Assert.Equal(Size.Medium, aaj.size);
-            aaj.size = Size.Large;
-            Assert.Equal(Size.Large, aaj.size);           
-            aaj.size = Size.Small;
-            Assert.Equal(Size.Small, aaj.size);
+            aaj.Size = Size.Medium;
+            Assert.Equal(Size.Medium, aaj.Size);
+            aaj.Size = Size.Large;
+            Assert.Equal(Size.Large, aaj.Size);           
+            aaj.Size = Size.Small;
+            Assert.Equal(Size.Small, aaj.Size);
         }
 
         [Theory]
@@ -56,9 +62,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, 1.01)]
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
-            ArentinoAppleJuice aaj = new ArentinoAppleJuice();
-            aaj.size = size;
-            Assert.Equal(price, aaj.Pirce);
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
+            aaj.Size = size;
+            Assert.Equal(price, aaj.Price);
         }
 
         [Theory]
@@ -67,8 +73,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, 132)]
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
-            ArentinoAppleJuice aaj = new ArentinoAppleJuice();
-            aaj.size = size;
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
+            aaj.Size = size;
             Assert.Equal(cal, aaj.Calories);
         }
 
@@ -77,7 +83,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(false)]
         public void ShouldHaveCorrectSpecialInstructions(bool includeIce)
         {
-            ArentinoAppleJuice aaj = new ArentinoAppleJuice();
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
             aaj.Ice = includeIce;
             if (includeIce) Assert.Contains("Add ice", aaj.SpecialInstructions);
             else Assert.Empty(aaj.SpecialInstructions);
@@ -89,8 +95,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, "Large Aretino Apple Juice")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
-            ArentinoAppleJuice aaj = new ArentinoAppleJuice();
-            aaj.size = size;
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
+            aaj.Size = size;
             Assert.Equal(name, aaj.ToString());
         }
     }

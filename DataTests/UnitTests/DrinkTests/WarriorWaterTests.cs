@@ -18,26 +18,26 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [Fact]
         public void ShouldIncludeIceByDefault()
         {
-            Warrior_Water ww = new Warrior_Water();
+            WarriorWater ww = new WarriorWater();
             Assert.True(ww.Ice);
         }
         [Fact]
         public void ShouldBeSmallByDefault()
         {
-            Warrior_Water ww = new Warrior_Water();
-            Assert.Equal(Size.Small, ww.size);
+            WarriorWater ww = new WarriorWater();
+            Assert.Equal(Size.Small, ww.Size);
         }
         [Fact]
         public void ShouldNotIncludeLemonByDefault()
         {
-            Warrior_Water ww = new Warrior_Water();
+            WarriorWater ww = new WarriorWater();
             Assert.False(ww.Lemon);
         }
 
         [Fact]
         public void ShouldBeAbleToSetIce()
         {
-            Warrior_Water ww = new Warrior_Water();
+            WarriorWater ww = new WarriorWater();
             ww.Ice = false;
             Assert.False(ww.Ice);
             ww.Ice = true;
@@ -46,18 +46,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
-            Warrior_Water ww = new Warrior_Water();
-            ww.size = Size.Medium;
-            Assert.Equal(Size.Medium, ww.size);
-            ww.size = Size.Large;
-            Assert.Equal(Size.Large, ww.size);
-            ww.size = Size.Small;
-            Assert.Equal(Size.Small, ww.size);
+            WarriorWater ww = new WarriorWater();
+            ww.Size = Size.Medium;
+            Assert.Equal(Size.Medium, ww.Size);
+            ww.Size = Size.Large;
+            Assert.Equal(Size.Large, ww.Size);
+            ww.Size = Size.Small;
+            Assert.Equal(Size.Small, ww.Size);
         }
         [Fact]
         public void ShouldBeAbleToSetLemon()
         {
-            Warrior_Water ww = new Warrior_Water();
+            WarriorWater ww = new WarriorWater();
             ww.Lemon = true;
             Assert.True(ww.Lemon);
             ww.Lemon = false;
@@ -71,9 +71,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, 0)]
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
-            Warrior_Water ww = new Warrior_Water();
-            ww.size = size;
-            Assert.Equal(price, ww.Pirce);
+            WarriorWater ww = new WarriorWater();
+            ww.Size = size;
+            Assert.Equal(price, ww.Price);
         }
 
         [Theory]
@@ -82,8 +82,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, 0)]
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
-            Warrior_Water ww = new Warrior_Water();
-            ww.size = size;
+            WarriorWater ww = new WarriorWater();
+            ww.Size = size;
             Assert.Equal(cal, ww.Calories);
         }
 
@@ -94,7 +94,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(false, false)]
         public void ShouldHaveCorrectSpecialInstructions(bool includeIce, bool includeLemon)
         {
-            Warrior_Water ww = new Warrior_Water();
+            WarriorWater ww = new WarriorWater();
             ww.Ice = includeIce;
             ww.Lemon = includeLemon;
             if (includeLemon) Assert.Contains("Add lemon", ww.SpecialInstructions);
@@ -108,9 +108,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Large, "Large Warrior Water")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
-            Warrior_Water ww = new Warrior_Water();
-            ww.size = size;
+            WarriorWater ww = new WarriorWater();
+            ww.Size = size;
             Assert.Equal(name, ww.ToString());
+        }
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            WarriorWater ww = new WarriorWater();
+            Assert.IsAssignableFrom<Drink>(ww);
         }
     }
 }

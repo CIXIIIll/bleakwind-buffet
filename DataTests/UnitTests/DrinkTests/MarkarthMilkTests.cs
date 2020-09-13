@@ -24,7 +24,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBySmallByDefault()
         {
             MarkarthMilk mm = new MarkarthMilk();
-            Assert.Equal(Size.Small, mm.size);
+            Assert.Equal(Size.Small, mm.Size);
         }
 
         [Fact]
@@ -41,12 +41,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeAbleToSetSize()
         {
             MarkarthMilk mm = new MarkarthMilk();
-            mm.size = Size.Medium;
-            Assert.Equal(Size.Medium, mm.size);
-            mm.size = Size.Large;
-            Assert.Equal(Size.Large, mm.size);
-            mm.size = Size.Small;
-            Assert.Equal(Size.Small, mm.size);
+            mm.Size = Size.Medium;
+            Assert.Equal(Size.Medium, mm.Size);
+            mm.Size = Size.Large;
+            Assert.Equal(Size.Large, mm.Size);
+            mm.Size = Size.Small;
+            Assert.Equal(Size.Small, mm.Size);
         }
 
         [Theory]
@@ -56,8 +56,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
             MarkarthMilk mm = new MarkarthMilk();
-            mm.size = size;
-            Assert.Equal(price, mm.Pirce);
+            mm.Size = size;
+            Assert.Equal(price, mm.Price);
         }
 
         [Theory]
@@ -67,7 +67,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
             MarkarthMilk mm = new MarkarthMilk();
-            mm.size = size;
+            mm.Size = size;
             Assert.Equal(cal, mm.Calories);
         }
 
@@ -89,8 +89,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
             MarkarthMilk mm = new MarkarthMilk();
-            mm.size = size;
+            mm.Size = size;
             Assert.Equal(name, mm.ToString());
+        }
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            MarkarthMilk mm = new MarkarthMilk();
+            Assert.IsAssignableFrom<Drink>(mm);
         }
     }
 }

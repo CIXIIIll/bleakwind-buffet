@@ -14,24 +14,24 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// A class of information of ordering milk
     /// </summary>
-    public class MarkarthMilk
+    public class MarkarthMilk : Drink, IOrderItem
     {
         /// <value>
-        /// Get and set the size
+        /// Get and set the Size
         /// </value>
-        public Size size { get; set; } = Size.Small;
+        public override Size Size { get; set; } = Size.Small;
         /// <value>
         /// Get the price
         /// </value>
-        public double Pirce
+        public override double Price
         {
             get
             {
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
                     return 1.05;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
                     return 1.11;
                 }
@@ -44,15 +44,15 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Get the calories
         /// </value>
-        public double Calories
+        public override uint Calories
         {
             get
             {
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
                     return 56;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
                     return 72;
                 }
@@ -69,7 +69,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Get the Special Instructions
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -79,17 +79,17 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
         /// <summary>
-        /// To string the name with size
+        /// To string the name with Size
         /// </summary>
-        /// <returns>A string that include name and size</returns>      
+        /// <returns>A string that include name and Size</returns>      
         public override string ToString()
         {
             String asize = "a";
-            if (size == Size.Small)
+            if (Size == Size.Small)
             {
                 asize = "Small";
             }
-            else if (size == Size.Medium)
+            else if (Size == Size.Medium)
             {
                 asize = "Medium";
             }

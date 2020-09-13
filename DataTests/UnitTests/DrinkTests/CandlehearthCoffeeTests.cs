@@ -31,14 +31,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldNotHaveRoomForCreamByDefault()
         {
             CandlehearthCoffee chf = new CandlehearthCoffee();
-            Assert.False(chf.RppmForCream);
+            Assert.False(chf.RoomForCream);
         }
 
         [Fact]
         public void ShouldBeSmallByDefault()
         {
             CandlehearthCoffee chf = new CandlehearthCoffee();
-            Assert.Equal(Size.Small, chf.size);
+            Assert.Equal(Size.Small, chf.Size);
         }
 
         [Fact]
@@ -65,22 +65,22 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldBeAbleToSetRoomForCream()
         {
             CandlehearthCoffee chf = new CandlehearthCoffee();
-            chf.RppmForCream = true;
-            Assert.True(chf.RppmForCream);
-            chf.RppmForCream = false;
-            Assert.False(chf.RppmForCream);
+            chf.RoomForCream = true;
+            Assert.True(chf.RoomForCream);
+            chf.RoomForCream = false;
+            Assert.False(chf.RoomForCream);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
             CandlehearthCoffee chf = new CandlehearthCoffee();         
-            chf.size = Size.Medium;
-            Assert.Equal(Size.Medium, chf.size);
-            chf.size = Size.Large;
-            Assert.Equal(Size.Large, chf.size);
-            chf.size = Size.Small;
-            Assert.Equal(Size.Small, chf.size);
+            chf.Size = Size.Medium;
+            Assert.Equal(Size.Medium, chf.Size);
+            chf.Size = Size.Large;
+            Assert.Equal(Size.Large, chf.Size);
+            chf.Size = Size.Small;
+            Assert.Equal(Size.Small, chf.Size);
         }
 
         [Theory]
@@ -90,8 +90,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectPriceForSize(Size size, double price)
         {
             CandlehearthCoffee chf = new CandlehearthCoffee();
-            chf.size = size;
-            Assert.Equal(price, chf.Pirce);
+            chf.Size = size;
+            Assert.Equal(price, chf.Price);
         }
 
         [Theory]
@@ -101,7 +101,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldHaveCorrectCaloriesForSize(Size size, uint cal)
         {
             CandlehearthCoffee chf = new CandlehearthCoffee();
-            chf.size = size;
+            chf.Size = size;
             Assert.Equal(cal, chf.Calories);
         }
 
@@ -114,7 +114,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             CandlehearthCoffee chf = new CandlehearthCoffee();
             chf.Ice = includeIce;
-            chf.RppmForCream = includeCream;
+            chf.RoomForCream = includeCream;
             if(includeCream)Assert.Contains("Add cream", chf.SpecialInstructions);
             if (includeIce) Assert.Contains("Add ice", chf.SpecialInstructions);
             if (!includeIce && !includeCream) Assert.Empty(chf.SpecialInstructions);
@@ -130,9 +130,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         public void ShouldReturnCorrectToStringBasedOnSize(bool decaf, Size size, string name)
         {
             CandlehearthCoffee chf = new CandlehearthCoffee();
-            chf.size = size;
+            chf.Size = size;
             chf.Decaf = decaf;
             Assert.Equal(name, chf.ToString());
+        }
+        [Fact]
+        public void ShouldBeADrink()
+        {
+            CandlehearthCoffee chf = new CandlehearthCoffee();
+            Assert.IsAssignableFrom<Drink>(chf);
         }
     }
 }

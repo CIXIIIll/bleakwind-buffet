@@ -17,19 +17,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldBeSmallByDefault()
         {
             VokunSalad vs = new VokunSalad();
-            Assert.Equal(Size.Small, vs.size);
+            Assert.Equal(Size.Small, vs.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
             VokunSalad vs = new VokunSalad();
-            vs.size = Size.Medium;
-            Assert.Equal(Size.Medium, vs.size);
-            vs.size = Size.Large;
-            Assert.Equal(Size.Large, vs.size);
-            vs.size = Size.Small;
-            Assert.Equal(Size.Small, vs.size);
+            vs.Size = Size.Medium;
+            Assert.Equal(Size.Medium, vs.Size);
+            vs.Size = Size.Large;
+            Assert.Equal(Size.Large, vs.Size);
+            vs.Size = Size.Small;
+            Assert.Equal(Size.Small, vs.Size);
         }
 
         [Fact]
@@ -46,8 +46,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
             VokunSalad vs = new VokunSalad();
-            vs.size = size;
-            Assert.Equal(price, vs.Pirce);
+            vs.Size = size;
+            Assert.Equal(price, vs.Price);
         }
 
         [Theory]
@@ -57,7 +57,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
             VokunSalad vs = new VokunSalad();
-            vs.size = size;
+            vs.Size = size;
             Assert.Equal(calories, vs.Calories);
         }
 
@@ -68,7 +68,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
             VokunSalad vs = new VokunSalad();
-            vs.size = size;
+            vs.Size = size;
             Assert.Equal(name, vs.ToString());
         }
     }

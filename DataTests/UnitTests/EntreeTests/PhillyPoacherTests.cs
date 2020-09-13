@@ -15,28 +15,28 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldInlcudeSirloinByDefault()
         {
-            Philly_Poacher pp = new Philly_Poacher();
+            PhillyPoacher pp = new PhillyPoacher();
             Assert.True(pp.Sirloin);
         }
 
         [Fact]
         public void ShouldInlcudeOnionByDefault()
         {
-            Philly_Poacher pp = new Philly_Poacher();
+            PhillyPoacher pp = new PhillyPoacher();
             Assert.True(pp.Onion);
         }
 
         [Fact]
         public void ShouldInlcudeRollByDefault()
         {
-            Philly_Poacher pp = new Philly_Poacher();
+            PhillyPoacher pp = new PhillyPoacher();
             Assert.True(pp.Roll);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSirloin()
         {
-            Philly_Poacher pp = new Philly_Poacher();
+            PhillyPoacher pp = new PhillyPoacher();
             pp.Sirloin = false;
             Assert.False(pp.Sirloin);
             pp.Sirloin = true;
@@ -46,7 +46,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldBeAbleToSetOnions()
         {
-            Philly_Poacher pp = new Philly_Poacher();
+            PhillyPoacher pp = new PhillyPoacher();
             pp.Onion = false;
             Assert.False(pp.Onion);
             pp.Onion = true;
@@ -56,7 +56,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldBeAbleToSetRoll()
         {
-            Philly_Poacher pp = new Philly_Poacher();
+            PhillyPoacher pp = new PhillyPoacher();
             pp.Roll = false;
             Assert.False(pp.Roll);
             pp.Roll = true;
@@ -66,14 +66,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectPrice()
         {
-            Philly_Poacher pp = new Philly_Poacher();
+            PhillyPoacher pp = new PhillyPoacher();
             Assert.Equal(7.23, pp.Price);
         }
 
         [Fact]
         public void ShouldReturnCorrectCalories()
         {
-            Philly_Poacher pp = new Philly_Poacher();
+            PhillyPoacher pp = new PhillyPoacher();
             uint calories = 784;
             Assert.Equal(calories, pp.Calories);
         }
@@ -84,7 +84,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         public void ShouldReturnCorrectSpecialInstructions(bool includeSirloin, bool includeOnion,
                                                             bool includeRoll)
         {
-            Philly_Poacher pp = new Philly_Poacher();
+            PhillyPoacher pp = new PhillyPoacher();
             pp.Sirloin = includeSirloin;
             pp.Onion = includeOnion;
             pp.Roll = includeRoll;
@@ -97,7 +97,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectToString()
         {
-            Philly_Poacher pp = new Philly_Poacher();
+            PhillyPoacher pp = new PhillyPoacher();
             Assert.Equal("Philly Poacher", pp.ToString());
         }
     }

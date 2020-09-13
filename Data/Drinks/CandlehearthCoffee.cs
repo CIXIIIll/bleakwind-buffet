@@ -14,24 +14,24 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// A class of information of ordering coffee
     /// </summary>
-    public class CandlehearthCoffee
+    public class CandlehearthCoffee :Drink, IOrderItem
     {
         /// <value>
-        /// Get and set the size
+        /// Get and set the Size
         /// </value>
-        public Size size { get; set; } = Size.Small;
+        public override Size Size { get; set; } = Size.Small;
         /// <value>
         /// Get the price
         /// </value>
-        public double Pirce
+        public override double Price
         {
             get
             {
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
                     return 0.75;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
                     return 1.25;
                 }
@@ -44,15 +44,15 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Get the calories
         /// </value>
-        public double Calories
+        public override uint Calories
         {
             get
             {
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
                     return 7;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
                     return 10;
                 }
@@ -69,7 +69,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Get and set the option of Cream
         /// </svalue>
-        public bool RppmForCream { get; set; } = false;
+        public bool RoomForCream { get; set; } = false;
         /// <value>
         /// Get and set the option of Decaf
         /// </value>
@@ -77,28 +77,28 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Get the Special Instructions
         /// </value>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
                 List<String> specialinstructions = new List<string>();
                 if (Ice) specialinstructions.Add("Add ice");
-                if (RppmForCream) specialinstructions.Add("Add cream");
+                if (RoomForCream) specialinstructions.Add("Add cream");
                 return specialinstructions;
             }
         }
         /// <summary>
-        /// To string the name with size and Decaf
+        /// To string the name with Size and Decaf
         /// </summary>
-        /// <returns>A string that include name size and Decaf</returns>      
+        /// <returns>A string that include name Size and Decaf</returns>      
         public override string ToString()
         {
             String asize = "a";
-            if (size == Size.Small)
+            if (Size == Size.Small)
             {
                 asize = "Small";
             }
-            else if (size == Size.Medium)
+            else if (Size == Size.Medium)
             {
                 asize = "Medium";
             }
