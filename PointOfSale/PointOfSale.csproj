@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="C3%28~E504]OTQK6F7%28`CI~H6.png" />
+    <None Remove="Cancel.png" />
+    <None Remove="DrinksMenu\Drinks.png" />
+    <None Remove="Entrees.png" />
+    <None Remove="EntreesMenu\Entrees.png" />
+    <None Remove="SidesMenu\Sides.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="C3(~E504]OTQK6F7(`CI~H6.png" />
+    <Resource Include="Cancel.png" />
+    <Resource Include="DrinksMenu\Drinks.png" />
+    <Resource Include="EntreesMenu\Entrees.png" />
+    <Resource Include="SidesMenu\Sides.png" />
+  </ItemGroup>
+
+</Project>

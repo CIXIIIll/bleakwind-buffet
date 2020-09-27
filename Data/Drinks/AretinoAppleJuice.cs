@@ -19,7 +19,6 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// Get and set the Size
         /// </value>
-        public override Size Size { get; set; } = Size.Small;
         /// <value>
         /// Get the price
         /// </value>
@@ -83,21 +82,8 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>A string that include name and Size</returns>      
         public override string ToString()
         {
-            String asize = "a";
-            if (Size == Size.Small)
-            {
-                asize = "Small";
-            }
-            else if (Size == Size.Medium)
-            {
-                asize = "Medium";
-            }
-            else
-            {
-                asize = "Large";
-            }
-
-            return $"{asize} Aretino Apple Juice";
+            return $"{Size.ToString()} Aretino Apple Juice";
+  
         }
     }
 }
