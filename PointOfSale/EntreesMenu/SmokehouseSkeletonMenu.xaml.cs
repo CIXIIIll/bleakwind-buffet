@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Haoran An
+* Class name: SmokehouseSkeletonMenu.xaml.cs
+* Purpose: Interaction logic for SmokehouseSkeletonMenu.xaml 
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

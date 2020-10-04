@@ -8,18 +8,31 @@ using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// A class of information of ordering Dragonborn Waffle Fries
     /// </summary>
-    public class DragonbornWaffleFries:Side, IOrderItem
+    public class DragonbornWaffleFries:Side, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <value>
         /// Get and set the Size
         /// </value>
-        public override Size Size { get; set; } = Size.Small;
+        Size size = Size.Small;
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            }
+        }
         /// <value>
         /// Get the price
         /// </value>

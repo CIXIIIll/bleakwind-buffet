@@ -7,14 +7,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// A class of information of ordering Thalmor Triple
     /// </summary>
-    public class ThalmorTriple : Entree, IOrderItem
+    public class ThalmorTriple : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <value>
         /// Get the price
         /// </value>
@@ -34,44 +36,144 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Get and set  the option of Ketchup
         /// </value>
-        public bool Ketchup { get; set; } = true;
+        bool ketchup = true;
+        public bool Ketchup
+        {
+            get { return ketchup; }
+            set
+            {
+                ketchup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Bun
         /// </value>
-        public bool Bun { get; set; } = true;
+        bool bun = true;
+        public bool Bun
+        {
+            get { return bun; }
+            set
+            {
+                bun = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Mustard
         /// </value>
-        public bool Mustard { get; set; } = true;
+        bool mustard = true;
+        public bool Mustard
+        {
+            get { return mustard; }
+            set
+            {
+                mustard = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
 
         /// <value>
         /// Get and set the option of Pickle
         /// </value>
-        public bool Pickle { get; set; } = true;
+        bool pickle = true;
+        public bool Pickle
+        {
+            get { return pickle; }
+            set
+            {
+                pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Cheese
         /// </value>
-        public bool Cheese { get; set; } = true;
+        bool cheese = true;
+        public bool Cheese
+        {
+            get { return cheese; }
+            set
+            {
+                cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Tomato
         /// </value>
-        public bool Tomato { get; set; } = true;
+        bool tomato = true;
+        public bool Tomato
+        {
+            get { return tomato; }
+            set
+            {
+                tomato = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Lettuce
         /// </value>
-        public bool Lettuce { get; set; } = true;
+        bool lettuce = true;
+        public bool Lettuce
+        {
+            get { return lettuce; }
+            set
+            {
+                lettuce = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lettuce"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Mayo
         /// </value>
-        public bool Mayo { get; set; } = true;
+        bool mayo = true;
+        public bool Mayo
+        {
+            get { return mayo; }
+            set
+            {
+                mayo = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mayo"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Bacon
         /// </value>
-        public bool Bacon { get; set; } = true;
+        bool bacon = true;
+        public bool Bacon
+        {
+            get { return bacon; }
+            set
+            {
+                bacon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bacon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Egg
         /// </value>
-        public bool Egg { get; set; } = true;
+        bool egg = true;
+        public bool Egg
+        {
+            get { return egg; }
+            set
+            {
+                egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get the Special Instructions
         /// </value>

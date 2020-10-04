@@ -15,13 +15,13 @@
         <TextBlock Grid.Row="0" Text="Philly Poacher" TextAlignment="Center" FontWeight="Bold" FontSize="20"></TextBlock>
         <StackPanel Grid.Row="1">
             <TextBlock Text="customize" TextAlignment="Center" FontWeight="Bold" FontSize="15"></TextBlock>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Sirloin}">
                 Sirloin
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Onion}">
                 Onion
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Roll}">
                 Roll
             </CheckBox>
         </StackPanel>

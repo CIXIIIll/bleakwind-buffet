@@ -15,16 +15,16 @@
         <TextBlock Grid.Row="0" Text="Garden Orc Omelette" TextAlignment="Center" FontWeight="Bold" FontSize="20"></TextBlock>
         <StackPanel Grid.Row="1">
             <TextBlock Text="customize" TextAlignment="Center" FontWeight="Bold" FontSize="15"></TextBlock>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Broccoli}">
                 Broccoli
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Mushrooms}">
                 Mushrooms
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Tomato}">
                 Tomato
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Cheddar}">
                 Cheddar
             </CheckBox>
         </StackPanel>

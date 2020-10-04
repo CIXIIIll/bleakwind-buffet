@@ -7,6 +7,7 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
@@ -14,12 +15,24 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// A class of information of ordering coffee
     /// </summary>
-    public class CandlehearthCoffee :Drink, IOrderItem
+    public class CandlehearthCoffee :Drink, IOrderItem ,INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <value>
         /// Get and set the Size
         /// </value>
-        public override Size Size { get; set; } = Size.Small;
+        Size size = Size.Small;
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            }
+        }
         /// <value>
         /// Get the price
         /// </value>
@@ -62,18 +75,49 @@ namespace BleakwindBuffet.Data.Drinks
                 }
             }
         }
+        bool ice = false;
         /// <value>
         /// Get and set the option of Ice
         /// </value>
-        public bool Ice { get; set; } = false;
+
+        public bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Cream
         /// </svalue>
-        public bool RoomForCream { get; set; } = false;
+        bool roomforcream = false;
+        public bool RoomForCream
+        {
+            get { return roomforcream; }
+            set
+            {
+                roomforcream = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("RoomForCream"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Decaf
         /// </value>
-        public bool Decaf { get; set; } = false;
+
+        bool decaf = false;
+        public bool Decaf
+        {
+            get { return decaf; }
+            set
+            {
+                decaf = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
+            }
+        }
         /// <value>
         /// Get the Special Instructions
         /// </value>

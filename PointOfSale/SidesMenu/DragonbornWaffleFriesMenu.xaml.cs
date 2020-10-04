@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Haoran An
+* Class name: DragonbornWaffleFriesMenu.xaml.cs
+* Purpose: Interaction logic for DragonbornWaffleFriesMenu.xaml 
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

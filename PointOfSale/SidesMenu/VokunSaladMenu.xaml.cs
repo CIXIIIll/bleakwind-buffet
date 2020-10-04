@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Haoran An
+* Class name: VokunSaladMenu.xaml.cs
+* Purpose: Interaction logic for VokunSaladMenu.xaml 
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

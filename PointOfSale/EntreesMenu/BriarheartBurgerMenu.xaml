@@ -15,19 +15,19 @@
         <TextBlock Grid.Row="0" Text="Briarheart Burger" TextAlignment="Center" FontWeight="Bold" FontSize="23"></TextBlock>
         <StackPanel Grid.Row="1">
             <TextBlock Text="customize" TextAlignment="Center" FontWeight="Bold" FontSize="15"></TextBlock>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Ketchup}">
                 Ketchup
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Bun}">
                 Bun
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Mustard}">
                 Mustard
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Pickle}">
                 Pickle
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Cheese}">
                 Cheese
             </CheckBox>
         </StackPanel>

@@ -8,22 +8,45 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// A class that get and set information of soda
     /// </summary>
-    public class SailorSoda :Drink,IOrderItem
+    public class SailorSoda :Drink,IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <value>
         /// Get and set the Size
         /// </value>
-        public override Size Size { get; set; } = Size.Small;  
+        Size size = Size.Small;
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            }
+        }
         /// <value>
         /// Get and set the Soda Flavor
         /// </value>
-        public SodaFlavor Flavor { get; set; } = SodaFlavor.Cherry;
+        SodaFlavor flavor = SodaFlavor.Cherry;
+        public SodaFlavor Flavor
+        {
+            get { return flavor; }
+            set
+            {
+                flavor = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get the price
         /// </value>
@@ -66,10 +89,21 @@ namespace BleakwindBuffet.Data.Drinks
                 }
             }
         }
+        bool ice = true;
         /// <value>
         /// Get and set the option of Ice
         /// </value>
-        public bool Ice { get; set; } = true;
+
+        public bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get the Special Instructions
         /// </value>

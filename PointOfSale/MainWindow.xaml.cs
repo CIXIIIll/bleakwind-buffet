@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Haoran An
+* Class name: MainWindow.xaml.cs
+* Purpose: Interaction logic for MainWindow.xaml 
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

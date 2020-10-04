@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Haoran An
+* Class name: CandlehearthCoffeeMenu.xaml.cs
+* Purpose: Interaction logic for CandlehearthCoffeeMenu.xaml 
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

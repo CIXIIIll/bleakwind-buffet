@@ -4,8 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.DrinksMenu"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:e="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="240">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="size" ObjectType="system:Enum" MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="e:Size"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -15,15 +24,11 @@
         <TextBlock Grid.Row="0" Text="Warrior Water " TextAlignment="Center" FontWeight="Bold" FontSize="23"></TextBlock>
         <StackPanel Grid.Row="1">
             <TextBlock Text="customize" TextAlignment="Center" FontWeight="Bold" FontSize="15"></TextBlock>
-            <ComboBox Name="Size" IsEditable="True" IsReadOnly="True" Text="--Size--">
-                <ComboBoxItem>Small</ComboBoxItem>
-                <ComboBoxItem>Medium</ComboBoxItem>
-                <ComboBoxItem>Large</ComboBoxItem>
-            </ComboBox>
-            <CheckBox IsChecked="True">
+            <ComboBox Name="Size" IsEditable="True" IsReadOnly="True" Text="--Size--" ItemsSource="{Binding Source= {StaticResource size}}" SelectedItem ="{Binding Path= Size}"/>
+            <CheckBox Name="Ice"  IsChecked="{Binding Path=Ice}">
                 Ice
             </CheckBox>
-            <CheckBox IsChecked="False">
+            <CheckBox IsChecked="{Binding Path=Lemon}">
                 Lemon
             </CheckBox>
         </StackPanel>

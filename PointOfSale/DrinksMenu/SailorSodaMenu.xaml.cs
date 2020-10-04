@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Haoran An
+* Class name: SailorSodaMenu.xaml.cs
+* Purpose: Interaction logic for SailorSodaMenu.xaml 
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,7 +19,7 @@ using System.Windows.Shapes;
 namespace PointOfSale.DrinksMenu
 {
     /// <summary>
-    /// SailorSodaMenu.xaml 的交互逻辑
+    /// Interaction logic for SailorSodaMenu.xaml 
     /// </summary>
     public partial class SailorSodaMenu : UserControl
     {

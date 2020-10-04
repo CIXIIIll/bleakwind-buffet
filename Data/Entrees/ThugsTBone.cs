@@ -6,6 +6,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
@@ -13,8 +14,9 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// A class of information of ordering Thugs T-Bone
     /// </summary>
-    public class ThugsTBone : Entree, IOrderItem
+    public class ThugsTBone : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <value>
         /// Get the price
         /// </value>
@@ -28,6 +30,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// Get the calories
         /// </value>
         private uint calories = 982;
+
         public override uint Calories
         {
             get { return calories; }

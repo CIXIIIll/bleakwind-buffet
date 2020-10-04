@@ -7,6 +7,7 @@
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
@@ -14,12 +15,24 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// A class of information of ordering water
     /// </summary>
-    public class WarriorWater : Drink, IOrderItem
+    public class WarriorWater : Drink, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <value>
         /// Get and set the Size
         /// </value>
-        public override Size Size { get; set; } = Size.Small;
+        Size size = Size.Small;
+        public override Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+            }
+        }
         /// <value>
         /// Get the price
         /// </value>
@@ -40,14 +53,34 @@ namespace BleakwindBuffet.Data.Drinks
                 return 0;
             }
         }
+        bool ice = true;
         /// <value>
         /// Get and set the option of Ice
         /// </value>
-        public bool Ice { get; set; } = true;
+        public bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of lemon
         /// </value>
-        public bool Lemon { get; set; } = false;
+        bool lemon = false;
+        public bool Lemon
+        {
+            get { return lemon; }
+            set
+            {
+                lemon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lemon"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get the Special Instructions
         /// </value>

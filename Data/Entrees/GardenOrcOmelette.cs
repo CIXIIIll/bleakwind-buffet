@@ -7,14 +7,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// A class of information of ordering Garden Orc Omelette
     /// </summary>
-    public class GardenOrcOmelette : Entree, IOrderItem
+    public class GardenOrcOmelette : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <value>
         /// Get the price
         /// </value>
@@ -36,19 +38,59 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Get and set the option of Broccoli
         /// </value>
-        public bool Broccoli { get; set; } = true;
+        bool broccoli = true;
+        public bool Broccoli
+        {
+            get { return broccoli; }
+            set
+            {
+                broccoli = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Mushrooms
         /// </value>
-        public bool Mushrooms { get; set; } = true;
+        bool mushrooms = true;
+        public bool Mushrooms
+        {
+            get { return mushrooms; }
+            set
+            {
+                mushrooms = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Tomato
         /// </value>
-        public bool Tomato { get; set; } = true;
+        bool tomato = true;
+        public bool Tomato
+        {
+            get { return tomato; }
+            set
+            {
+                tomato = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Cheddar
         /// </value>
-        public bool Cheddar { get; set; } = true;
+        bool cheddar = true;
+        public bool Cheddar
+        {
+            get { return cheddar; }
+            set
+            {
+                cheddar = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get the Special Instructions
         /// </value>

@@ -98,5 +98,39 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             MarkarthMilk mm = new MarkarthMilk();
             Assert.IsAssignableFrom<Drink>(mm);
         }
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            MarkarthMilk mm = new MarkarthMilk();
+
+            Assert.PropertyChanged(mm, "Ice", () =>
+            {
+                mm.Ice = true;
+            });
+
+            Assert.PropertyChanged(mm, "Ice", () =>
+            {
+                mm.Ice = false;
+            });
+        }
+        [Fact]
+        public void ChangingSizeNotifiesSizeProperty()
+        {
+            MarkarthMilk mm = new MarkarthMilk();
+
+            Assert.PropertyChanged(mm, "Size", () =>
+            {
+                mm.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(mm, "Size", () =>
+            {
+                mm.Size = Size.Small;
+            });
+            Assert.PropertyChanged(mm, "Size", () =>
+            {
+                mm.Size = Size.Large;
+            });
+        }
     }
 }

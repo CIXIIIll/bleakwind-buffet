@@ -15,34 +15,34 @@
         <TextBlock Grid.Row="0" Text="Thalmor Triple" TextAlignment="Center" FontWeight="Bold" FontSize="23"></TextBlock>
         <StackPanel Grid.Row="1">
             <TextBlock Text="customize" TextAlignment="Center" FontWeight="Bold" FontSize="15"></TextBlock>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Ketchup}">
                 Ketchup
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Bun}">
                 Bun
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Mustard}">
                 Mustard
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Pickle}">
                 Pickle
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Cheese}">
                 Cheese
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Tomato}">
                 Tomato
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Lettuce}">
                 Lettuce
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Mayo}">
                 Mayo
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Bacon}">
                 Bacon
             </CheckBox>
-            <CheckBox IsChecked="True">
+            <CheckBox IsChecked="{Binding Path=Egg}">
                 Egg
             </CheckBox>
         </StackPanel>

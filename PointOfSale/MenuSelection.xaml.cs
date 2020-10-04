@@ -1,10 +1,18 @@
-﻿using BleakwindBuffet.Data;
+﻿/*
+* Author: Haoran An
+* Class name: MenuSelection.xaml.cs
+* Purpose: Interaction logic for MenuSelection.xaml 
+*/
+using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Sides;
 using PointOfSale.DrinksMenu;
 using PointOfSale.EntreesMenu;
 using PointOfSale.SidesMenu;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -40,6 +48,7 @@ namespace PointOfSale
         {
             BriarheartBurgerMenu b = new BriarheartBurgerMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new BriarheartBurger();
             Container.Child = b;
         }
         /// <summary> 
@@ -61,6 +70,7 @@ namespace PointOfSale
         {
             DoubleDraugrMenu d = new DoubleDraugrMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new DoubleDraugr();
             Container.Child = d;
         }
         /// <summary> 
@@ -72,6 +82,7 @@ namespace PointOfSale
         {
             GardenOrcOmeletteMenu g = new GardenOrcOmeletteMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new GardenOrcOmelette();
             Container.Child = g;
         }
         /// <summary> 
@@ -83,6 +94,7 @@ namespace PointOfSale
         {
             ThalmorTripleMenu tt = new ThalmorTripleMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new ThalmorTriple();
             Container.Child = tt;
         }
         /// <summary> 
@@ -94,6 +106,7 @@ namespace PointOfSale
         {
             SmokehouseSkeletonMenu s = new SmokehouseSkeletonMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new SmokehouseSkeleton();
             Container.Child = s;
         }
         /// <summary> 
@@ -105,6 +118,7 @@ namespace PointOfSale
         {
             PhillyPoacherMenu p = new PhillyPoacherMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new PhillyPoacher();
             Container.Child = p;
         }
         /// <summary> 
@@ -116,6 +130,7 @@ namespace PointOfSale
         {
             ThugsTBoneMenu t = new ThugsTBoneMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new ThugsTBone();
             Container.Child = t;
         }
         /// <summary> 
@@ -127,6 +142,7 @@ namespace PointOfSale
         {
             SailorSodaMenu s = new SailorSodaMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new SailorSoda();
             Container.Child = s;
         }
         /// <summary> 
@@ -138,6 +154,7 @@ namespace PointOfSale
         {
             MarkarthMilkMenu mm = new MarkarthMilkMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new MarkarthMilk();
             Container.Child = mm;
         }
         /// <summary> 
@@ -149,6 +166,7 @@ namespace PointOfSale
         {
             AretinoAppleJuiceMenu a = new AretinoAppleJuiceMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new AretinoAppleJuice();
             Container.Child = a;
         }
         /// <summary> 
@@ -160,6 +178,7 @@ namespace PointOfSale
         {
             CandlehearthCoffeeMenu c = new CandlehearthCoffeeMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new CandlehearthCoffee();
             Container.Child = c;
         }
         /// <summary> 
@@ -171,6 +190,7 @@ namespace PointOfSale
         {
             WarriorWaterMenu w = new WarriorWaterMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new WarriorWater();
             Container.Child = w;
         }
         /// <summary> 
@@ -182,6 +202,7 @@ namespace PointOfSale
         {
             VokunSaladMenu v = new VokunSaladMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new VokunSalad();
             Container.Child = v;
         }
         /// <summary> 
@@ -193,6 +214,7 @@ namespace PointOfSale
         {
             FriedMiraakMenu f = new FriedMiraakMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new FriedMiraak();
             Container.Child = f;
         }
         /// <summary> 
@@ -204,6 +226,7 @@ namespace PointOfSale
         {
             MadOtarGritsMenu m = new MadOtarGritsMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new MadOtarGrits();
             Container.Child = m;
         }
         /// <summary> 
@@ -215,6 +238,7 @@ namespace PointOfSale
         {
             DragonbornWaffleFriesMenu d = new DragonbornWaffleFriesMenu();
             Done.Visibility = Visibility.Visible;
+            this.DataContext = new DragonbornWaffleFries();
             Container.Child = d;
         }
     }

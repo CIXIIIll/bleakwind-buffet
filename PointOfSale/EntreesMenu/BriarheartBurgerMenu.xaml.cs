@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Entrees;
+﻿/*
+* Author: Haoran An
+* Class name: BriarheartBurgerMenu.xaml.cs
+* Purpose: Interaction logic for BriarheartBurgerMenu.xaml 
+*/
+using BleakwindBuffet.Data.Entrees;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -7,14 +7,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// A class of information of ordering Smokehouse Skeleton
     /// </summary>
-    public class SmokehouseSkeleton : Entree, IOrderItem
+    public class SmokehouseSkeleton : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <value>
         /// Get the price
         /// </value>
@@ -35,19 +37,59 @@ namespace BleakwindBuffet.Data.Entrees
         /// <value>
         /// Get and set the option of SausageLink
         /// </value>
-        public bool SausageLink { get; set; } = true;
+        bool sausagelink = true;
+        public bool SausageLink
+        {
+            get { return sausagelink; }
+            set
+            {
+                sausagelink = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SausageLink"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Egg
         /// </value>
-        public bool Egg { get; set; } = true;
+        bool egg = true;
+        public bool Egg
+        {
+            get { return egg; }
+            set
+            {
+                egg = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of HashBrowns
         /// </value>
-        public bool HashBrowns { get; set; } = true;
+        bool hashbrowns = true;
+        public bool HashBrowns
+        {
+            get { return hashbrowns; }
+            set
+            {
+                hashbrowns = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("HashBrowns"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Pancake
         /// </value>
-        public bool Pancake { get; set; } = true;
+        bool pancake = true;
+        public bool Pancake
+        {
+            get { return pancake; }
+            set
+            {
+                pancake = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get the Special Instructions
         /// </value>

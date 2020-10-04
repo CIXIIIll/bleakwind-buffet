@@ -7,14 +7,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     ///  A class of information of ordering Philly Poacher
     /// </summary>
-    public class PhillyPoacher: Entree, IOrderItem
+    public class PhillyPoacher: Entree, IOrderItem , INotifyPropertyChanged 
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <value>
         /// Get the price
         /// </value>
@@ -32,18 +34,48 @@ namespace BleakwindBuffet.Data.Entrees
         {
             get { return calories; }
         }
+        bool sirloin = true;
         /// <value>
         /// Get and set  the option of Sirloin 
         /// </value>
-        public bool Sirloin { get; set; } = true;
+        public bool Sirloin
+        {
+            get { return sirloin; }
+            set
+            {
+                sirloin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Onion 
         /// </value>
-        public bool Onion { get; set; } = true;
+        bool onion = true;
+        public bool Onion
+        {
+            get { return onion; }
+            set
+            {
+                onion = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the option of Roll
         /// </value>
-        public bool Roll { get; set; } = true;
+        bool roll = true;
+        public bool Roll
+        {
+            get { return roll; }
+            set
+            {
+                roll = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
+        }
         /// <value>
         /// Get and set the Special Instructions
         /// </value>
