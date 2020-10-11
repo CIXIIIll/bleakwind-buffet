@@ -6,35 +6,66 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="850" d:DesignWidth="1800">
+    <UserControl.Resources>
+                <DataTemplate x:Key="list">
+            <ListBox>
+                <TextBlock Text="{Binding}"/>
+            </ListBox>
+        </DataTemplate>
+        <DataTemplate x:Key="box">
+            <StackPanel>
+                <TextBlock Text="{Binding}"/>
+                <ListBox Width="390" ItemsSource="{Binding Path=SpecialInstructions}" ItemTemplate="{StaticResource list}"/>
+                <TextBlock Text="{Binding Path=Price , StringFormat= C2}"/>
+                <Button Name="Remove" Content="Remove From Order" Click="Remove_Click" Height="40"/>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
     <Grid RenderTransformOrigin="0.763,0.517">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1400" />
-            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="840" />
+            <ColumnDefinition Width="560" />
+            <ColumnDefinition Width="194"/>
+            <ColumnDefinition Width="206"/>
+            <ColumnDefinition Width="194"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="106*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="106*"/>
+            <RowDefinition Height="106*"/>
+            <RowDefinition Height="106*"/>
+            <RowDefinition Height="106*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="36*"/>
             <RowDefinition Height="106.25"/>
         </Grid.RowDefinitions>
-        <Border Name ="contanerBorder" Grid.Column="0" Grid.RowSpan="8"></Border>
-        <Button Name ="Neworder" Content="New Order" Grid.RowSpan="8"  Grid.Column="0" Click="Neworder_Click" FontSize="50"></Button>
-        <Button Name="Checkout" Grid.Column="1" Grid.Row="7">
+        <Border Name ="contanerBorder" Grid.Column="0" Grid.RowSpan="11" Grid.ColumnSpan="2"></Border>
+        <Border Name ="menuBorder" Grid.Column="1" Grid.RowSpan="10"/>
+        <Button Name ="Neworder" Content="New Order" Grid.RowSpan="11" Grid.ColumnSpan="2" Grid.Column="0" Click="Neworder_Click" FontSize="50"></Button>
+        <Button Name="Checkout" Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="2">
             <StackPanel Orientation ="Horizontal">
                 <Image Source="/C3(~E504]OTQK6F7(`CI~H6.png" Width="35"/>
                 <TextBlock FontSize="16" VerticalAlignment="Center">Check Out</TextBlock>
             </StackPanel>
         </Button>
-        <Button Name="Cancelorder" Content="Cancel Order" Grid.Column="1" Grid.Row="0" Click="Cancelorder_Click">
+        <Button Name="Cancelorder" Content="Cancel Order" Grid.Column="2" Grid.Row="0" Click="Cancelorder_Click" FontSize="20" Grid.ColumnSpan="2">
             <Button.Background>
                 <ImageBrush Opacity ="0.4" ImageSource= "/Cancel.png"/>
             </Button.Background>
         </Button>
-        <Label Name="Orderdetail" Grid.Column="1" Grid.Row="1" Grid.RowSpan="4">Order Detail</Label>
-        <Label Name="Price" Grid.Column="1" Grid.Row="5" Grid.RowSpan="2">Price</Label>
+        <Button Name="ReAddToOrder" Content="ReAdd Order" Grid.Column="1" Grid.Row="11" Visibility="Hidden" Click="ReAddToOrder_Click"></Button>
+        <Label Name="Orderdetail" Grid.Column="2" Grid.RowSpan="5" Margin="0,53,0,6" Grid.Row="1" FontSize="16" Grid.ColumnSpan="2">Order Detail</Label>
+        <Label Margin="0,106,139,0" Grid.Column="2" Grid.RowSpan="2" FontSize="16">Order #</Label>
+        <TextBlock Name="OrderNumber" Grid.Column="2" Text="{Binding Path= NextOrderNumber}" Margin="72,10,0,0" Grid.Row="1" FontSize="16" Grid.ColumnSpan="2"/>
+        <Label  Grid.Column="2" Grid.Row="7"  FontSize="16">Subtotal:</Label>
+        <Label Grid.Column="2" Grid.Row="8" FontSize="16">Tax:</Label>
+        <Label Grid.Column="2" Grid.Row="9" FontSize="16">ToTal</Label>
+        <TextBlock  Grid.Column="3" Grid.Row="7"  FontSize="16" Text="{Binding Path= Subtotal, StringFormat = c2}"/>
+        <TextBlock  Grid.Column="3" Grid.Row="8"  FontSize="16" Text="{Binding Path= Tax, StringFormat = c2}"/>
+        <TextBlock  Grid.Column="3" Grid.Row="9"  FontSize="16" Text="{Binding Path= Total, StringFormat = c2}"/>
+        <ListBox  ItemsSource="{Binding Path = OrderItems}" SelectionChanged  ="ListChanged" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="4" ItemTemplate="{StaticResource box}" />
     </Grid>
 </UserControl>

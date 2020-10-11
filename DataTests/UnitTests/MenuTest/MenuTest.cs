@@ -8,9 +8,9 @@ using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
 
-namespace BleakwindBuffet.DataTests.UnitTests
+namespace BleakwindBuffet.DataTests.UnitTests.MenuTest
 {
-    public class MenuTest
+    public class menuTest
     {
         [Fact]
         public void SouldAddAllEntrees()

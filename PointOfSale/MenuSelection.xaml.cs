@@ -31,7 +31,7 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuSelection : UserControl
     {
-        List<IOrderItem> list = new List<IOrderItem>();
+        IOrderItem item;
         /// <summary>
         /// Constructs a new MenuSelection
         /// </summary>
@@ -48,8 +48,9 @@ namespace PointOfSale
         {
             BriarheartBurgerMenu b = new BriarheartBurgerMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new BriarheartBurger();
             Container.Child = b;
+            b.DataContext = new BriarheartBurger();
+            item = (IOrderItem)b.DataContext;
         }
         /// <summary> 
         /// Adds the item in the list
@@ -60,6 +61,11 @@ namespace PointOfSale
         {
             Container.Child = null;
             Done.Visibility = Visibility.Hidden;
+            if(DataContext is Order order)
+            {
+                order.Add(item);
+            }
+            item = null;
         }
         /// <summary> 
         /// Open the Double Draugr list
@@ -70,8 +76,9 @@ namespace PointOfSale
         {
             DoubleDraugrMenu d = new DoubleDraugrMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new DoubleDraugr();
+            d.DataContext = new DoubleDraugr();
             Container.Child = d;
+            item = (IOrderItem)d.DataContext;
         }
         /// <summary> 
         /// Open the Garden Orc Omelette list
@@ -82,8 +89,9 @@ namespace PointOfSale
         {
             GardenOrcOmeletteMenu g = new GardenOrcOmeletteMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new GardenOrcOmelette();
+            g.DataContext = new GardenOrcOmelette();
             Container.Child = g;
+            item = (IOrderItem)g.DataContext;
         }
         /// <summary> 
         /// Open the Thalmor Triple list
@@ -94,8 +102,9 @@ namespace PointOfSale
         {
             ThalmorTripleMenu tt = new ThalmorTripleMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new ThalmorTriple();
+            tt.DataContext = new ThalmorTriple();
             Container.Child = tt;
+            item = (IOrderItem)tt.DataContext;
         }
         /// <summary> 
         /// Open the Smokehouse Skeleton list
@@ -106,8 +115,9 @@ namespace PointOfSale
         {
             SmokehouseSkeletonMenu s = new SmokehouseSkeletonMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new SmokehouseSkeleton();
+            s.DataContext = new SmokehouseSkeleton();
             Container.Child = s;
+            item = (IOrderItem)s.DataContext;
         }
         /// <summary> 
         /// Open the Philly Poacher list
@@ -118,8 +128,9 @@ namespace PointOfSale
         {
             PhillyPoacherMenu p = new PhillyPoacherMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new PhillyPoacher();
+            p.DataContext = new PhillyPoacher();
             Container.Child = p;
+            item = (IOrderItem)p.DataContext;
         }
         /// <summary> 
         /// Open the Thugs T Bone list
@@ -130,8 +141,9 @@ namespace PointOfSale
         {
             ThugsTBoneMenu t = new ThugsTBoneMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new ThugsTBone();
+            t.DataContext = new ThugsTBone();
             Container.Child = t;
+            item = (IOrderItem)t.DataContext;
         }
         /// <summary> 
         /// Open the Sailor Soda list
@@ -142,8 +154,9 @@ namespace PointOfSale
         {
             SailorSodaMenu s = new SailorSodaMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new SailorSoda();
+            s.DataContext = new SailorSoda();
             Container.Child = s;
+            item = (IOrderItem)s.DataContext;
         }
         /// <summary> 
         /// Open the Markarth Milklist list
@@ -154,8 +167,9 @@ namespace PointOfSale
         {
             MarkarthMilkMenu mm = new MarkarthMilkMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new MarkarthMilk();
+            mm.DataContext = new MarkarthMilk();
             Container.Child = mm;
+            item = (IOrderItem)mm.DataContext;
         }
         /// <summary> 
         /// Open the Aretino Apple Juice list
@@ -166,8 +180,9 @@ namespace PointOfSale
         {
             AretinoAppleJuiceMenu a = new AretinoAppleJuiceMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new AretinoAppleJuice();
+            a.DataContext = new AretinoAppleJuice();
             Container.Child = a;
+            item = (IOrderItem)a.DataContext;
         }
         /// <summary> 
         /// Open the Candlehearth Coffee list
@@ -178,8 +193,9 @@ namespace PointOfSale
         {
             CandlehearthCoffeeMenu c = new CandlehearthCoffeeMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new CandlehearthCoffee();
+            c.DataContext = new CandlehearthCoffee();
             Container.Child = c;
+            item = (IOrderItem)c.DataContext;
         }
         /// <summary> 
         /// Open the Warrior Water list
@@ -190,8 +206,9 @@ namespace PointOfSale
         {
             WarriorWaterMenu w = new WarriorWaterMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new WarriorWater();
+            w.DataContext = new WarriorWater();
             Container.Child = w;
+            item = (IOrderItem)w.DataContext;
         }
         /// <summary> 
         /// Open the Vokun Salad list
@@ -202,8 +219,9 @@ namespace PointOfSale
         {
             VokunSaladMenu v = new VokunSaladMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new VokunSalad();
+            v.DataContext = new VokunSalad();
             Container.Child = v;
+            item = (IOrderItem)v.DataContext;
         }
         /// <summary> 
         /// Open the Fried Miraak list
@@ -214,8 +232,9 @@ namespace PointOfSale
         {
             FriedMiraakMenu f = new FriedMiraakMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new FriedMiraak();
+            f.DataContext = new FriedMiraak();
             Container.Child = f;
+            item = (IOrderItem)f.DataContext;
         }
         /// <summary> 
         /// Open the Mad Otar Grits list
@@ -226,8 +245,9 @@ namespace PointOfSale
         {
             MadOtarGritsMenu m = new MadOtarGritsMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new MadOtarGrits();
+            m.DataContext = new MadOtarGrits();
             Container.Child = m;
+            item = (IOrderItem)m.DataContext;
         }
         /// <summary> 
         /// Open Dragonborn Waffle Fries list
@@ -238,8 +258,9 @@ namespace PointOfSale
         {
             DragonbornWaffleFriesMenu d = new DragonbornWaffleFriesMenu();
             Done.Visibility = Visibility.Visible;
-            this.DataContext = new DragonbornWaffleFries();
+            d.DataContext = new DragonbornWaffleFries();
             Container.Child = d;
+            item = (IOrderItem)d.DataContext;
         }
     }
 }
