@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Haoran An
+* Class name: Combo.cs
+* Purpose: The information that for current order
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;

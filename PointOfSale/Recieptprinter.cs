@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data;
+﻿/*
+* Author: Haoran An
+* Class name: Combo.cs
+* Purpose: Help class for print reciept
+*/
+using BleakwindBuffet.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,12 +16,21 @@ namespace PointOfSale
         string Payment;
         Order Current;
         ViewModelClass Vmc;
+        /// <summary>
+        /// enter variable for current payment
+        /// </summary>
+        /// <param name="order">current order</param>
+        /// <param name="payment">the payment type</param>
+        /// <param name="vmc">helping class for cash payment</param>
         public Recieptprinter(Order order,string payment, ViewModelClass vmc)
         {
             Current = order;
             Payment = payment;
             Vmc = vmc;
         }
+        /// <summary>
+        /// Print recipet for current order
+        /// </summary>
         public void PrintRecipet()
         {
             RecieptPrinter.PrintLine("Order number " + (Current.NextOrderNumber - 1) + " ");

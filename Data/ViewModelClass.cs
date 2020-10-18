@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+* Author: Haoran An
+* Class name: Combo.cs
+* Purpose: Middle class of Cash Payment logic
+*/
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;

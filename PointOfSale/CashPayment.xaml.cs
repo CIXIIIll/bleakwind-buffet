@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data;
+﻿/*
+* Author: Haoran An
+* Class name: Combo.cs
+* Purpose: Interaction logic for CashPayment.xaml
+*/
+using BleakwindBuffet.Data;
 using RoundRegister;
 using System;
 using System.Collections.Generic;

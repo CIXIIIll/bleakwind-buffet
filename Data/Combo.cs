@@ -1,4 +1,8 @@
-﻿
+﻿/*
+* Author: Haoran An
+* Class name: Combo.cs
+* Purpose: The information of making combo
+*/
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
