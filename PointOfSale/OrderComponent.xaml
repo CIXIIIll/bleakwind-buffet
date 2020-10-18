@@ -45,7 +45,7 @@
         <Border Name ="contanerBorder" Grid.Column="0" Grid.RowSpan="11" Grid.ColumnSpan="2"></Border>
         <Border Name ="menuBorder" Grid.Column="1" Grid.RowSpan="10"/>
         <Button Name ="Neworder" Content="New Order" Grid.RowSpan="11" Grid.ColumnSpan="2" Grid.Column="0" Click="Neworder_Click" FontSize="50"></Button>
-        <Button Name="Checkout" Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="2">
+        <Button Name="Checkout" Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="2" Click="Checkout_Click">
             <StackPanel Orientation ="Horizontal">
                 <Image Source="/C3(~E504]OTQK6F7(`CI~H6.png" Width="35"/>
                 <TextBlock FontSize="16" VerticalAlignment="Center">Check Out</TextBlock>

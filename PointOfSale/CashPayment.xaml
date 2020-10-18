@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="PointOfSale.CashPayment"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="109*"/>
+            <ColumnDefinition Width="108*"/>
+            <ColumnDefinition Width="103*"/>
+            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="106*"/>
+            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="160*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="1" Name="bills" Grid.ColumnSpan="3">
+            <local:CashButton Names="$1" Changes="{Binding Path= Bones}" Current="{Binding Path=Ones}"/>
+            <local:CashButton Names="$2" Changes="{Binding Path= Btwos}" Current="{Binding Path=Twos}"/>
+            <local:CashButton Names="$5" Changes="{Binding Path= Bfives}" Current="{Binding Path=Fives}"/>
+            <local:CashButton Names="$10" Changes="{Binding Path= Btens}" Current="{Binding Path=Tens}"/>
+            <local:CashButton Names="$20" Changes="{Binding Path= Btwenties}" Current="{Binding Path=Twenties}"/>
+            <local:CashButton Names="$50" Changes="{Binding Path= Bfifties}" Current="{Binding Path=Fifties}"/>
+            <local:CashButton Names="$100" Changes="{Binding Path= Bhundreds}" Current="{Binding Path=Hundreds}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="3"  Grid.Row="1" Name="coins" Grid.ColumnSpan="3">
+            <local:CashButton Changes="{Binding Path= Bdollars}" Names="$1" Current="{Binding Path=Dollars}"/>
+            <local:CashButton Changes="{Binding Path= BhalfDollars}" Names="¢50" Current="{Binding Path=HalfDollars}"/>
+            <local:CashButton Changes="{Binding Path= Bquarters}" Names="¢25" Current="{Binding Path=Quarters}"/>
+            <local:CashButton Changes="{Binding Path= Bdimes}" Names="¢10" Current="{Binding Path=Dimes}"/>
+            <local:CashButton Changes="{Binding Path= Bnickels}" Names="¢5" Current="{Binding Path=Nickels}"/>
+            <local:CashButton Changes="{Binding Path= Bpennies}" Names="¢1" Current="{Binding Path=Pennies}"/>
+        </StackPanel>
+        <TextBlock  Grid.Column="0" Grid.Row="2" FontSize="30" Text="{Binding Path= Total,StringFormat= C2}" Grid.ColumnSpan="3"></TextBlock>
+        <TextBlock  Grid.Column="3" Grid.Row="2" FontSize="30" Text="{Binding Path= TotalChange,StringFormat= C2}" Grid.ColumnSpan="3"></TextBlock>
+        <Button Grid.Column="6" Grid.Row="2" FontSize="10" Margin="10,10,10,10" Click="CheckOutButton_Click" IsEnabled="False" Name="CheckOutButton">Finalize Sale</Button>
+        <Button Grid.Column="6" Grid.Row="1" FontSize="10" Margin="10,240,10,10" Click="BackToOrder_Click">Back To Order</Button>
+    </Grid>
+</UserControl>

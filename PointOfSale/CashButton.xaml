@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="PointOfSale.CashButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+          d:DesignHeight="50" d:DesignWidth="350">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Text="{Binding Path= Names,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType= local:CashButton }}" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Grid.Column="1" Name="Increase" Click="HandleClicked"  FontSize="30">+</Button>
+        <TextBlock Grid.Column="2" Text="{Binding Path= Current,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType= local:CashButton }}" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Grid.Column="3" Name="Decrease" Click="HandleClicked"  FontSize="30" IsEnabled="False">-</Button>
+        <TextBlock Grid.Column="5" Text="{Binding Path= Changes,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType= local:CashButton }}" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </Grid>
+</UserControl>

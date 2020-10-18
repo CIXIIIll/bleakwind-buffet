@@ -30,7 +30,7 @@
         <TextBlock Grid.Row="1" Grid.Column="1" Text="Drinks" TextAlignment ="Center" FontSize="25"></TextBlock>
         <TextBlock Grid.Row="1"  Grid.Column="2" Text="Sides" TextAlignment ="Center" FontSize="25"></TextBlock>
         <Border Name="Container" Grid.RowSpan="8" Grid.ColumnSpan="2" Grid.Column="3"/>
-        <Button Name="Done" Grid.Column="4" Grid.Row="9"  Click="Done_Click">Add to Order</Button>
+        <Button Name="Done" Grid.Column="4" Grid.Row="8"  Click="Done_Click">Add to Order</Button>
         <Button Click="AddBriarheartBurger" FontWeight="Bold" Name="BriarheartBurger" Grid.Column="0" Grid.Row="2"  FontSize="25">
             <Button.Background>
                 <ImageBrush Opacity ="0.4" ImageSource="/EntreesMenu/Entrees.png"/>
@@ -57,7 +57,7 @@
                 Smokehouse <LineBreak/>
                 Skeleton
             </TextBlock>
-            
+
         </Button>
         <Button Click="AddGardenOrcOmelette" Name="GardenOrcOmelette" Grid.Column="0" FontWeight="Bold" Grid.Row="6"  FontSize="25">
             <Button.Background>
@@ -100,7 +100,7 @@
                 Aretino <LineBreak/>
                 Apple Juice
             </TextBlock>
-            </Button>
+        </Button>
         <Button Click="AddCandlehearthCoffee" Name="CandlehearthCoffee" FontWeight="Bold" Grid.Column="1" Grid.Row="5"  FontSize="25">
             <Button.Background>
                 <ImageBrush  Opacity ="0.4" ImageSource="/DrinksMenu/Drinks.png"/>
@@ -114,22 +114,26 @@
             <Button.Background>
                 <ImageBrush Opacity ="0.4" ImageSource="/DrinksMenu/Drinks.png"/>
             </Button.Background>
-            Warrior Water</Button>
+            Warrior Water
+        </Button>
         <Button Click="AddVokunSalad" FontWeight="Bold" Name="VokunSalad" Grid.Column="2" Grid.Row="2" FontSize="25">
             <Button.Background>
                 <ImageBrush Opacity ="0.4" ImageSource=" /SidesMenu/Sides.png"/>
             </Button.Background>
-            Vokun Salad</Button>
+            Vokun Salad
+        </Button>
         <Button Click="AddFriedMiraak" FontWeight="Bold" Name="FriedMiraak" Grid.Column="2" Grid.Row="3" FontSize="25">
             <Button.Background>
                 <ImageBrush Opacity ="0.4" ImageSource=" /SidesMenu/Sides.png"/>
             </Button.Background>
-            Fried Miraak</Button>
+            Fried Miraak
+        </Button>
         <Button Click="AddMadOtarGrits" FontWeight="Bold" Name="MadOtarGrits" Grid.Column="2" Grid.Row="4" FontSize="25">
             <Button.Background>
                 <ImageBrush Opacity ="0.4" ImageSource=" /SidesMenu/Sides.png"/>
             </Button.Background>
-            Mad Otar Grits</Button>
+            Mad Otar Grits
+        </Button>
         <Button Click="AddDragonbornWaffleFries" FontWeight="Bold"  Name="DragonbornWaffleFries" Grid.Column="2" Grid.Row="5" FontSize="25">
             <Button.Background>
                 <ImageBrush Opacity ="0.4" ImageSource=" /SidesMenu/Sides.png"/>
@@ -139,5 +143,7 @@
                 Waffle Friess
             </TextBlock>
         </Button>
+        <Button Grid.Column="2" Grid.Row="8" FontSize="25" Click="OrderButton_Click" Name="OrderButton">Add Combo</Button>
+        <Button Grid.Column="3" Grid.Row="8" FontSize="25" Click="AddOrderButton_Click" Name="AddOrderButton" Visibility="Hidden">Add Combo to Order</Button>
     </Grid>
 </UserControl>

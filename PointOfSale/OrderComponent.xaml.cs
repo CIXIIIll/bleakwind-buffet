@@ -32,6 +32,7 @@ namespace PointOfSale
     public partial class OrderComponent : UserControl
     {
         MenuSelection xy;
+        Order current;
         /// <summary>
         /// Constructs a new OrderComponent
         /// </summary>
@@ -46,7 +47,8 @@ namespace PointOfSale
         /// <param name="e">The events describing the event</param>
         private void Neworder_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new Order();
+            current = new Order();
+            DataContext = current;
             xy = new MenuSelection();
             contanerBorder.Child = xy;
             Neworder.Visibility = Visibility.Hidden;
@@ -56,7 +58,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender">The object sending the event</param>
         /// <param name="e">The events describing the event</param>
-        private void Cancelorder_Click(object sender, RoutedEventArgs e)
+        public void FinishOrder()
         {
             xy = null;
             contanerBorder.Child = null;
@@ -66,7 +68,15 @@ namespace PointOfSale
             menuBorder.DataContext = null;
             ReAddToOrder.Visibility = Visibility.Hidden;
         }
-
+        private void Cancelorder_Click(object sender, RoutedEventArgs e)
+        {
+            FinishOrder();
+        }
+        public void BackToOrder()
+        {
+            DataContext = current;
+            contanerBorder.Child = xy;
+        }
         private void ListChanged(object sender, SelectionChangedEventArgs e)
         {
             if(sender is ListBox list)
@@ -184,8 +194,19 @@ namespace PointOfSale
         {
             if(DataContext is Order order)
             {
+                if((sender as Button).DataContext is Combo)
+                {
+                    xy.Combobool = true;
+                    xy.combobutton();
+                }
                 order.Remove((sender as Button).DataContext as IOrderItem);
             }
+        }
+
+        private void Checkout_Click(object sender, RoutedEventArgs e)
+        {
+            PaymentControl payment =new PaymentControl();
+            contanerBorder.Child = payment;
         }
     }
 }

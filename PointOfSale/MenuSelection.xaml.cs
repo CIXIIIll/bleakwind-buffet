@@ -35,6 +35,8 @@ namespace PointOfSale
         /// <summary>
         /// Constructs a new MenuSelection
         /// </summary>
+        public bool Combobool;
+        ComboMenu m;
         public MenuSelection()
         {
             InitializeComponent();
@@ -59,11 +61,39 @@ namespace PointOfSale
         /// <param name="e">The events describing the event</param>
         private void Done_Click(object sender, RoutedEventArgs e)
         {
-            Container.Child = null;
             Done.Visibility = Visibility.Hidden;
-            if(DataContext is Order order)
+            if (Combobool)
             {
-                order.Add(item);
+                Container.Child = m;
+                if(item is Drink items)
+                {
+                    if(m.DataContext is Combo com)
+                    {
+                        com.Drink = (IOrderItem)items;
+                    }
+                }
+                if (item is Entree entree)
+                {
+                    if (m.DataContext is Combo com)
+                    {
+                        com.Entree = (IOrderItem)entree;
+                    }
+                }
+                if (item is Side side)
+                {
+                    if (m.DataContext is Combo com)
+                    {
+                        com.Side = (IOrderItem)side;
+                    }
+                }
+            }
+            else
+            {
+                if (DataContext is Order order)
+                {
+                    order.Add(item);
+                }
+                Container.Child = null;
             }
             item = null;
         }
@@ -261,6 +291,32 @@ namespace PointOfSale
             d.DataContext = new DragonbornWaffleFries();
             Container.Child = d;
             item = (IOrderItem)d.DataContext;
+        }
+
+        private void OrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            m = new ComboMenu();
+            m.DataContext = new Combo();
+            Container.Child = m;
+            OrderButton.IsEnabled = false;
+            Combobool = true;
+            AddOrderButton.Visibility = Visibility.Visible;
+        }
+
+        private void AddOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                order.Add(m.DataContext as IOrderItem);
+            }
+            Container.Child = null;
+            Combobool = false;
+            OrderButton.IsEnabled = false;
+            AddOrderButton.Visibility = Visibility.Hidden;
+        }
+        public void combobutton()
+        {
+            OrderButton.IsEnabled = true;
         }
     }
 }

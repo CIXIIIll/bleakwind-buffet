@@ -28,9 +28,13 @@ namespace BleakwindBuffet.Data
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("drinkname"));
             }
         }
-
+        public string drinkname
+        {
+            get { return drink?.ToString(); }
+        }
         public IOrderItem Entree
         {
             get { return entree; }
@@ -40,7 +44,16 @@ namespace BleakwindBuffet.Data
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("entreename"));
             }
+        }
+        public string entreename
+        {
+            get { return entree?.ToString(); }
+        }
+        public string sidename
+        {
+            get { return side?.ToString(); }
         }
         public IOrderItem Side
         {
@@ -51,6 +64,7 @@ namespace BleakwindBuffet.Data
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("sidename"));
             }
         }
         public double Price
@@ -104,38 +118,27 @@ namespace BleakwindBuffet.Data
                 if (drink != null)
                 {
                     specialInstructions.Add(drink.ToString());
-                    specialInstructions.Add(" ");
                     foreach (string s in drink.SpecialInstructions)
                     {
                         specialInstructions.Add(s);
-                        specialInstructions.Add(",");
                     }
-                    specialInstructions.Add(",");
                 }
                 if (side != null)
                 {
                     specialInstructions.Add(side.ToString());
-                    specialInstructions.Add(" ");
                     foreach (string s in side.SpecialInstructions)
                     {
                         specialInstructions.Add(s);
-                        specialInstructions.Add(",");
                     }
-                    specialInstructions.Add(",");
                 }
                 if (entree != null)
                 {
                     specialInstructions.Add(entree.ToString());
-                    specialInstructions.Add(" ");
                     foreach (string s in entree.SpecialInstructions)
                     {
                         specialInstructions.Add(s);
-                        specialInstructions.Add(",");
                     }
-                    specialInstructions.Add(",");
                 }
-                specialInstructions.Add(" ");
-                specialInstructions.Add(",");
                 return specialInstructions;
             }
         }

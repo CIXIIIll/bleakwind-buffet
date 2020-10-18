@@ -129,8 +129,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTest
             Assert.Contains(Spe5, combo.SpecialInstructions);
             Assert.Contains(Spe6, combo.SpecialInstructions);
             Assert.Contains("Implementations", combo.SpecialInstructions);
-            Assert.Contains(" ", combo.SpecialInstructions);
-            Assert.Contains(",", combo.SpecialInstructions);
         }
 
         [Theory]
@@ -154,8 +152,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTest
             Assert.Contains(Spe3, combo.SpecialInstructions);
             Assert.Contains(Spe4, combo.SpecialInstructions);
             Assert.Contains("Implementations", combo.SpecialInstructions);
-            Assert.Contains(" ", combo.SpecialInstructions);
-            Assert.Contains(",", combo.SpecialInstructions);
         }
         [Fact]
         public void ChangingNotifiesProperty()
