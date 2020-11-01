@@ -30,6 +30,13 @@
 </div>
 <div class="Drink">
     <h2>Drinks</h2>
+    <div class="flavor">
+        <h3>SodaFlavor</h3>
+        @foreach (var flavor in Enum.GetValues(typeof(BleakwindBuffet.Data.Enums.SodaFlavor)))
+        {
+            <div>@flavor.ToString()</div>
+        }
+    </div>
     @foreach (BleakwindBuffet.Data.IOrderItem item in BleakwindBuffet.Data.Menu.Menu.Drinks())
     {
         <div class="details">
