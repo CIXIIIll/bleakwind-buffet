@@ -7,6 +7,7 @@ using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Drinks;
+using System.Linq;
 
 namespace BleakwindBuffet.DataTests.UnitTests.MenuTest
 {
@@ -149,7 +150,144 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTest
                 item => Assert.Equal(Size.Large, ((Drink)item).Size)
                 );
         }
+        [Fact]
+        public void ShouldFiltByCategorywithNull()
+        {
+            IEnumerable<IOrderItem> All = Menu.All;
+            List<string> list = new List<string>();
+            IEnumerable<IOrderItem> x = Menu.FilterByCategory(All, list);
+            Assert.Equal(All, x);
+        }
+        [Fact]
+        public void ShouldFiltByCategorywithAll()
+        {
+            IEnumerable<IOrderItem> All = Menu.All;
+            List<string> list = new List<string> { "Entrees", "Drinks", "Sides" };
+            IEnumerable<IOrderItem> x = Menu.FilterByCategory(All, list);
+            Assert.Equal(All, x);
+        }
+        [Fact]
+        public void ShouldFiltByCategorywithEntrees()
+        {
+            IEnumerable<IOrderItem> All = Menu.All;
+            List<string> list = new List<string> { "Entrees" };
+            IEnumerable<IOrderItem> x = Menu.FilterByCategory(All, list);
+            Assert.Collection(x,
+                item => Assert.IsAssignableFrom<BriarheartBurger>(item),
+                item => Assert.IsAssignableFrom<DoubleDraugr>(item),
+                item => Assert.IsAssignableFrom<GardenOrcOmelette>(item),
+                item => Assert.IsAssignableFrom<PhillyPoacher>(item),
+                item => Assert.IsAssignableFrom<SmokehouseSkeleton>(item),
+                item => Assert.IsAssignableFrom<ThalmorTriple>(item),
+                item => Assert.IsAssignableFrom<ThugsTBone>(item)
+           );
+        }
+        [Fact]
+        public void ShouldFiltByCategorywithDrinksinSameCount()
+        {
+            IEnumerable<IOrderItem> All = Menu.All;
+            List<string> list = new List<string> { "Drinks" }; 
+            IEnumerable<IOrderItem> x = Menu.FilterByCategory(All, list);
+            Assert.Equal(Menu.Drink.Count(), x.Count());
+        }
+        [Fact]
+        public void ShouldFiltByCategorywithSidesinSameCount()
+        {
+            IEnumerable<IOrderItem> All = Menu.All;
+            List<string> list = new List<string> { "Sides" };
+            IEnumerable<IOrderItem> x = Menu.FilterByCategory(All, list);
+            Assert.Equal(Menu.Side.Count(), x.Count());
+        }
+        [Theory]
+        [InlineData("Soda", 18)]
+        [InlineData("-", 1)]
+        [InlineData("Burger", 1)]
+        [InlineData("9", 0)]
+        public void ShouldSearchwithStringinSameCount(string searchTerm, int count)
+        {
+            IEnumerable<IOrderItem> x = Menu.Search(Menu.All, searchTerm);
+            Assert.Equal(count, x.Count());
+        }
+        [Fact]
+        public void ShouldSearchwithNullinSameCount()
+        {
+            IEnumerable<IOrderItem> x = Menu.Search(Menu.All, "");
+            Assert.Equal(Menu.All.Count(), x.Count());
+        }
+        [Fact]
+        public void ShouldSearchwithCaloriesinSameCount()
+        {
+            IEnumerable<IOrderItem> x = Menu.FilterByCalories(Menu.All, 0, 100);
+            Assert.Equal(17, x.Count());
+        }
+        [Fact]
+        public void ShouldSearchCalorieswithNullinSameCount()
+        {
+            IEnumerable<IOrderItem> x = Menu.FilterByCalories(Menu.All, null, null);
+            Assert.Equal(Menu.All.Count(), x.Count());
+        }
+        [Fact]
+        public void ShouldSearchCalorieswithMinNull()
+        {
+            IEnumerable<IOrderItem> x = Menu.FilterByCalories(Menu.All, null, 0);
+            Assert.Collection(x, item => Assert.IsAssignableFrom<WarriorWater>(item),
+                item => Assert.IsAssignableFrom<WarriorWater>(item),
+                item => Assert.IsAssignableFrom<WarriorWater>(item)
+            );
+        }
+        [Fact]
+        public void ShouldSearchCalorieswithMaxNull()
+        {
+            IEnumerable<IOrderItem> x = Menu.FilterByCalories(Menu.All, 500, null);
+            Assert.Collection(x,
+                 item => Assert.IsAssignableFrom<BriarheartBurger>(item),
+                 item => Assert.IsAssignableFrom<DoubleDraugr>(item),
+                item => Assert.IsAssignableFrom<PhillyPoacher>(item),
+                item => Assert.IsAssignableFrom<SmokehouseSkeleton>(item),
+                 item => Assert.IsAssignableFrom<ThalmorTriple>(item),
+                 item => Assert.IsAssignableFrom<ThugsTBone>(item)
+                );
+        }
 
+
+        [Fact]
+        public void ShouldSearchwithPrice()
+        {
+            IEnumerable<IOrderItem> x = Menu.FilterByPrice(Menu.All, 5, 10);
+            Assert.Collection(x,
+             item => Assert.IsAssignableFrom<BriarheartBurger>(item),
+             item => Assert.IsAssignableFrom<DoubleDraugr>(item),
+             item => Assert.IsAssignableFrom<PhillyPoacher>(item),
+             item => Assert.IsAssignableFrom<SmokehouseSkeleton>(item),
+             item => Assert.IsAssignableFrom<ThalmorTriple>(item),
+             item => Assert.IsAssignableFrom<ThugsTBone>(item)
+         );
+        }
+        [Fact]
+        public void ShouldSearchPricewithNullinSameCount()
+        {
+            IEnumerable<IOrderItem> x = Menu.FilterByPrice(Menu.All, null, null);
+            Assert.Equal(Menu.All.Count(), x.Count());
+        }
+        [Fact]
+        public void ShouldSearchPricewithMinNull()
+        {
+            IEnumerable<IOrderItem> x = Menu.FilterByPrice(Menu.All, null, 0);
+            Assert.Collection(x, item => Assert.IsAssignableFrom<WarriorWater>(item),
+                item => Assert.IsAssignableFrom<WarriorWater>(item),
+                item => Assert.IsAssignableFrom<WarriorWater>(item)
+                );
+        }
+        [Fact]
+        public void ShouldSearchPricewithMaxNull()
+        {
+            IEnumerable<IOrderItem> x = Menu.FilterByPrice(Menu.All,7, null);
+            Assert.Collection(x,
+            item => Assert.IsAssignableFrom<DoubleDraugr>(item),
+            item => Assert.IsAssignableFrom<PhillyPoacher>(item),
+            item => Assert.IsAssignableFrom<ThalmorTriple>(item)
+            );
+        }
         [Fact]
         public void ShouldAddAllItemInFullMenu()
         {

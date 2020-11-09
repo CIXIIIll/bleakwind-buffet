@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
+
 
 namespace BleakwindBuffet.Data.Menu
 {
@@ -134,5 +136,153 @@ namespace BleakwindBuffet.Data.Menu
             return Drink;
 
         }
+        /// <summary>
+        /// The type name
+        /// </summary>
+        public static string[] ItemsTypes
+        {
+            get => new string[]
+            {
+            "Entrees",
+            "Drinks",
+            "Sides",
+            };
+        }
+
+        /// <summary>
+        /// A collection for All items
+        /// </summary>
+        public static IEnumerable<IOrderItem> All { get { return FullMenu(); } }
+        /// <summary>
+        /// A collection for All Drinks
+        /// </summary>
+        public static IEnumerable<IOrderItem> Drink { get { return Drinks(); } }
+        /// <summary>
+        /// A collection for All Entrees
+        /// </summary>
+        public static IEnumerable<IOrderItem> Entree { get { return Entrees(); } }
+        /// <summary>
+        /// A collection for All Sides
+        /// </summary>
+        public static IEnumerable<IOrderItem> Side { get { return Sides(); } }
+        /// <summary>
+        /// Filters the provided collection of item for type
+        /// </summary>
+        /// <param name="items">The collection of item to filter</param>
+        /// <param name="ItemsType">The item to include</param>
+        /// <returns>A collection containing only items that match the filter</returns>
+        public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> items, IEnumerable<string> ItemsType)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+            if (ItemsType.Count() == 0) return items;
+            foreach (IOrderItem item in items)
+            {
+                if (ItemsType.Contains("Entrees") && item is Entree)
+                {
+                    results.Add(item);
+                }
+                if (ItemsType.Contains("Drinks") && item is Drink)
+                {
+                    results.Add(item);
+                }
+                if (ItemsType.Contains("Sides") && item is Side)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+        /// <summary>
+        /// Filters the provided collection of item to those with Calories falling within the speacified range
+        /// </summary>
+        /// <param name="items">The collection of item to filter</param>
+        /// <param name="min">The minimum range value</param>
+        /// <param name="max">The maximum range value</param>
+        /// <returns>The filtered item collection</returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, uint? min, uint? max)
+        {
+            if (min == null & max == null) return items;
+            List<IOrderItem> results = new List<IOrderItem>();
+            if (min == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Calories <= max) results.Add(item);
+                }
+                return results;
+            }
+            if (max == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Calories >= min) results.Add(item);
+                }
+                return results;
+            }
+            foreach (IOrderItem item in items)
+            {
+                if (item.Calories >= min & item.Calories <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+        /// <summary>
+        /// Filters the provided collection of item to those with Price falling within the speacified range
+        /// </summary>
+        /// <param name="items">The collection of item to filter</param>
+        /// <param name="min">The minimum range value</param>
+        /// <param name="max">The maximum range value</param>
+        /// <returns>The filtered item collection</returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
+        {
+            if (min == null & max == null) return items;
+            List<IOrderItem> results = new List<IOrderItem>();
+            if (min == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Price <= max) results.Add(item);
+                }
+                return results;
+            }
+            if (max == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Price >= min) results.Add(item);
+                }
+                return results;
+            }
+            foreach (IOrderItem item in items)
+            {
+                if (item.Price >= min & item.Price <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+        /// <summary>
+        /// Searches the Menu for matching item
+        /// </summary>
+        /// <param name="items">The collection of item to filter</param>
+        /// <param name="terms">The terms to search for</param>
+        /// <returns>A collection of items include terms</returns>
+        public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> items, string terms)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+            if (terms == null) return All;
+            foreach(IOrderItem item in items)
+            {
+                if (item.ToString() != null && item.ToString().Contains(terms, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
     }
+
 }
