@@ -19,7 +19,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             MadOtarGrits mog = new MadOtarGrits();
             Assert.Equal(Size.Small, mog.Size);
         }
-                
+        [Fact]
+        public void ShouldBeAbleToGetDescription()
+        {
+            MadOtarGrits mog = new MadOtarGrits();
+            Assert.Equal("Cheesey Grits.", mog.Description);
+        }
         [Fact]
         public void ShouldBeAbleToSetSize()
         {

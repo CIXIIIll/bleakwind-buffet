@@ -18,6 +18,17 @@ namespace BleakwindBuffet.Data.Sides
     public class DragonbornWaffleFries:Side, IOrderItem, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <value>
+        /// Get the Description
+        /// </value>
+        public override string Description
+        {
+            get
+            {
+                return "Crispy fried potato waffle fries.";
+            }
+        }
         /// <value>
         /// Get and set the Size
         /// </value>

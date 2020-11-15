@@ -42,7 +42,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             aaj.Ice = false;
             Assert.False(aaj.Ice);
         }
-
+        [Fact]
+        public void ShouldBeAbleToGetDescription()
+        {
+            AretinoAppleJuice aaj = new AretinoAppleJuice();
+            Assert.Equal("Fresh squeezed apple juice.", aaj.Description);
+        }
         [Fact]
         public void ShouldBeAbleToSetSize()
         {

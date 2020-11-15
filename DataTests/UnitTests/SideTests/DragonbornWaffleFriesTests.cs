@@ -19,7 +19,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             DragonbornWaffleFries dwf = new DragonbornWaffleFries();
             Assert.Equal(Size.Small, dwf.Size);
         }
-
+        [Fact]
+        public void ShouldBeAbleToGetDescription()
+        {
+            DragonbornWaffleFries dwf = new DragonbornWaffleFries();
+            Assert.Equal("Crispy fried potato waffle fries.", dwf.Description);
+        }
         [Fact]
         public void ShouldBeAbleToSetSize()
         {

@@ -18,7 +18,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             PhillyPoacher pp = new PhillyPoacher();
             Assert.True(pp.Sirloin);
         }
-
+        [Fact]
+        public void ShouldBeAbleToGetDescription()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.Equal("Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.", pp.Description);
+        }
         [Fact]
         public void ShouldInlcudeOnionByDefault()
         {

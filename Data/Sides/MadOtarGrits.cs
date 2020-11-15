@@ -16,6 +16,16 @@ namespace BleakwindBuffet.Data.Sides
     {
         public event PropertyChangedEventHandler PropertyChanged;
         /// <value>
+        /// Cheesey Grits.
+        /// </value>
+        public override string Description
+        {
+            get
+            {
+                return "Cheesey Grits.";
+            }
+        }
+        /// <value>
         /// Get the size
         /// </value>
         Size size = Size.Small;

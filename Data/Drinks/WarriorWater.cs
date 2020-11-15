@@ -94,6 +94,16 @@ namespace BleakwindBuffet.Data.Drinks
                 return specialinstructions;
             }
         }
+        /// <value>
+        /// Get the Description
+        /// </value>
+        public override string Description
+        {
+            get
+            {
+                return "It’s water. Just water.";
+            }
+        }
         /// <summary>
         /// To string the name with Size
         /// </summary>

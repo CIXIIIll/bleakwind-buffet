@@ -22,6 +22,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTest
             {
                 return "Implementations";
             }
+            public string Description { get; }
         }
         [Fact]
         public void ShouldBeAbleToAddDrink()

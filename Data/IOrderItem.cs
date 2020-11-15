@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace BleakwindBuffet.Data
 {
@@ -16,5 +17,7 @@ namespace BleakwindBuffet.Data
         uint Calories { get;}
 
         List<string> SpecialInstructions { get; }
+
+        string Description { get; }
     }
 }

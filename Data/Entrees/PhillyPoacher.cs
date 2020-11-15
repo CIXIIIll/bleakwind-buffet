@@ -77,6 +77,16 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
         /// <value>
+        /// Get the Description
+        /// </value>
+        public override string Description
+        {
+            get
+            {
+                return "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
+            }
+        }
+        /// <value>
         /// Get and set the Special Instructions
         /// </value>
         public override List<string> SpecialInstructions

@@ -146,5 +146,7 @@ namespace BleakwindBuffet.Data
                 return specialInstructions;
             }
         }
+
+        public string Description { get; }
     }
 }

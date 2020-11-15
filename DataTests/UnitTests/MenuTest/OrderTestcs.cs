@@ -24,6 +24,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTest
             {
                 return "Implementations";
             }
+            public string Description { get; }
         }
         public class implementations2 : IOrderItem
         {
@@ -36,6 +37,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTest
             {
                 return "Implementations2";
             }
+            public string Description { get; }
         }
         [Theory]
         [InlineData(1.11, 3.31, 4.42)]

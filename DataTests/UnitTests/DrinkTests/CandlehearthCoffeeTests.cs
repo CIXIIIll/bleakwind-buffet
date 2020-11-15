@@ -19,7 +19,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
             CandlehearthCoffee chf = new CandlehearthCoffee();
             Assert.False(chf.Ice);
         }
-
+        [Fact]
+        public void ShouldBeAbleToGetDescription()
+        {
+            CandlehearthCoffee chf = new CandlehearthCoffee();
+            Assert.Equal("Fair trade, fresh ground dark roast coffee.", chf.Description);
+        }
         [Fact]
         public void ShouldNotBeDecafByDefault()
         {

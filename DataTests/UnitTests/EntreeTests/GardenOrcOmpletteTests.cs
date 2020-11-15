@@ -18,7 +18,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             GardenOrcOmelette goo = new GardenOrcOmelette();
             Assert.True(goo.Broccoli);
         }
-
+        [Fact]
+        public void ShouldBeAbleToGetDescription()
+        {
+            GardenOrcOmelette goo = new GardenOrcOmelette();
+            Assert.Equal("Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.", goo.Description);
+        }
         [Fact]
         public void ShouldInlcudeMushroomsByDefault()
         {

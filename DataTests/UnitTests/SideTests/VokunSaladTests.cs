@@ -19,7 +19,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             VokunSalad vs = new VokunSalad();
             Assert.Equal(Size.Small, vs.Size);
         }
-
+        [Fact]
+        public void ShouldBeAbleToGetDescription()
+        {
+            VokunSalad vs = new VokunSalad();
+            Assert.Equal("A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges.", vs.Description);
+        }
         [Fact]
         public void ShouldBeAbleToSetSize()
         {

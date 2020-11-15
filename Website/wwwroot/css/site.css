@@ -70,11 +70,15 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 div.details {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+
     justify-content: space-between;
     min-height: 50px;
+}
+div.des {
+    border:  dashed;
+}
+div.Items {
+    margin:10px;
 }
 form.movie-database {
     display: grid;
@@ -87,19 +91,9 @@ div.search {
     grid-column-end: 3;
     text-align: center;
 }
-form#movie-database {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: auto auto;
-}
 div.filters {
     display: flex;
     flex-direction: column;
-}
-div.Items {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    text-align: center;
 }
 div.flavor {
     display: flex;
@@ -110,4 +104,14 @@ div.filters input[type=number] {
 }
 div.filters h4 {
     margin-bottom: 0.2rem;
+}
+div.flex-columns {
+    display: flex;
+    flex-direction: row;
+}
+@media (max-width: 490px) {
+    div.flex-columns {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }

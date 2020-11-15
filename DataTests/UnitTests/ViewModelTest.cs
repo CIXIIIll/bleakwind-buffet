@@ -22,6 +22,7 @@ namespace BleakwindBuffet.DataTests
             {
                 return "Implementations";
             }
+            public string Description { get; }
         }
         [Fact]
         public void ShouldBeAbleToAddPenniesFromCustomer()

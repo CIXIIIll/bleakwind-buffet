@@ -20,7 +20,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
             FriedMiraak fm = new FriedMiraak();
             Assert.Equal(Size.Small, fm.Size);
         }
-
+        [Fact]
+        public void ShouldBeAbleToGetDescription()
+        {
+            FriedMiraak fm = new FriedMiraak();
+            Assert.Equal("Perfectly prepared hash brown pancakes.", fm.Description);
+        }
         [Fact]
         public void ShouldBeAbleToSetSize()
         {

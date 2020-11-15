@@ -16,6 +16,16 @@ namespace BleakwindBuffet.Data.Sides
     {
         public event PropertyChangedEventHandler PropertyChanged;
         /// <value>
+        /// Get the Description
+        /// </value>
+        public override string Description
+        {
+            get
+            {
+                return "Perfectly prepared hash brown pancakes.";
+            }
+        }
+        /// <value>
         /// Get and set the Size
         /// </value>
         Size size = Size.Small;
